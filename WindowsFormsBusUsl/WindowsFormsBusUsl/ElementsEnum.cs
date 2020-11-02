@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WindowsFormsBus
+namespace WindowsFormsBusUsl
 {
-    public enum DoorsNumber
+    enum ElementsEnum
     {
-        Three=3,
-        Four,
-        Five
+        Triangle,
+
+        Rectangle,
+
+        Ellipse,
     }
 }

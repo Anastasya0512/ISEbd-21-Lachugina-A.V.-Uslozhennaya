@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WindowsFormsBus
+namespace WindowsFormsBusUsl
 {
     public enum Direction
     {

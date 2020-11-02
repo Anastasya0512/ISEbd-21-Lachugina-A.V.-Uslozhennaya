@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WindowsFormsBus;
+using WindowsFormsBusUsl;
 
-namespace WindowsFormsBus
+namespace WindowsFormsBusUsl
 {
     public partial class FormBus : Form
     {
-        private BusGarm bus;
+        private Bus bus;
 
         /// <summary>
         /// Конструктор
@@ -33,16 +33,15 @@ namespace WindowsFormsBus
             pictureBoxBus.Image = bmp;
         }
         /// <summary>
-        /// Обработка нажатия кнопки "Создать"
+        /// Обработка нажатия кнопки "Создать автобус"
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void buttonCreate_Click(object sender, EventArgs e)
+        private void buttonCreateBus_Click(object sender, EventArgs e)
         {
             Random rnd = new Random();
-            int numberdoor = Convert.ToInt32(comboBoxnumberdoor.SelectedItem);
-            bus = new BusGarm(rnd.Next(100, 150), rnd.Next(10000, 15000), Color.Red, Color.Black, true, true, numberdoor);
-            bus.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxBus.Width, pictureBoxBus.Height);
+            bus = new Bus(rnd.Next(150, 200), rnd.Next(5000, 10000), Color.Red);
+            bus.SetPosition(rnd.Next(10, 150), rnd.Next(10, 150), pictureBoxBus.Width, pictureBoxBus.Height);
             Draw();
         }
         /// <summary>
@@ -69,6 +68,19 @@ namespace WindowsFormsBus
                     bus.MoveTransport(Direction.Right);
                     break;
             }
+            Draw();
+        }
+
+        private void buttonCreateBusGarm_Click(object sender, EventArgs e)
+        {
+            Random rnd = new Random();
+
+            int doorForm = (checkBoxTriangle.Checked && !checkBoxRectangle.Checked && !checkBoxEllipse.Checked) ? 1 :
+                (!checkBoxTriangle.Checked && checkBoxRectangle.Checked && !checkBoxEllipse.Checked) ? 2 :
+                (!checkBoxTriangle.Checked && !checkBoxRectangle.Checked && checkBoxEllipse.Checked ? 3 : 0);
+
+            bus = new BusGarm(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Red, Color.Black, true, true, doorForm);
+            bus.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxBus.Width, pictureBoxBus.Height);
             Draw();
         }
     }
