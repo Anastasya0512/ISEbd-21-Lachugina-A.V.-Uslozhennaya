@@ -46,19 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Autovoksal.cs" />
     <Compile Include="Bus.cs" />
     <Compile Include="BusGarm.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="EasyBus.cs" />
-    <Compile Include="ElementsEnum.cs" />
-    <Compile Include="EllipseForm.cs" />
+    <Compile Include="FormAutovoksal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAutovoksal.designer.cs">
+      <DependentUpon>FormAutovoksal.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormBus.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormBus.designer.cs">
       <DependentUpon>FormBus.cs</DependentUpon>
     </Compile>
-    <Compile Include="IDopElement.cs" />
     <Compile Include="ITransport.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -66,8 +70,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="RectangleForm.cs" />
-    <Compile Include="TriangleForm.cs" />
+    <EmbeddedResource Include="FormAutovoksal.resx">
+      <DependentUpon>FormAutovoksal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormBus.resx">
       <DependentUpon>FormBus.cs</DependentUpon>
     </EmbeddedResource>

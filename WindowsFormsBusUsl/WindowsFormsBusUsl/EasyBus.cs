@@ -48,3 +48,4 @@ namespace WindowsFormsBusUsl
         public abstract void MoveTransport(Direction direction);
     }
 }
+    

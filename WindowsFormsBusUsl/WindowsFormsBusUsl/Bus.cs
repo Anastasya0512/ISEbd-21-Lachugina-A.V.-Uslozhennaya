@@ -9,17 +9,34 @@ namespace WindowsFormsBusUsl
 {
     public class Bus : EasyBus
     {
+        /// <summary>
+        /// Ширина отрисовки автобуса
+        /// </summary>
         protected readonly int busWidth = 194;
-
+        /// <summary>
+        /// Высота отрисовки автобуса
+        /// </summary>
         protected readonly int busHeight = 68;
-  
+        /// <summary>
+        /// Конструктор
+        /// </summary>
+        /// <param name="maxSpeed">Максимальная скорость</param>
+        /// <param name="weight">Вес автобусая</param>
+        /// <param name="mainColor">Основной цвет кузова</param>
         public Bus(int maxSpeed, float weight, Color mainColor)
         {
             MaxSpeed = maxSpeed;
             Weight = weight;
             MainColor = mainColor;
         }
-  
+        /// <summary>
+        /// Конструктор с изменением размеров автобуса
+        /// </summary>
+        /// <param name="maxSpeed">Максимальная скорость</param>
+        /// <param name="weight">Вес автобуса</param>
+        /// <param name="mainColor">Основной цвет кузова</param>
+        /// <param name="busWidth">Ширина отрисовки автобуса</param>
+        /// <param name="busHeight">Высота отрисовки автобуса</param>
         protected Bus(int maxSpeed, float weight, Color mainColor, int busWidth, int
        busHeight)
         {
