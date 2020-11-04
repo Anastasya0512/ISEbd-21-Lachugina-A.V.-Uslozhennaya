@@ -32,15 +32,15 @@
             this.buttonSetBus = new System.Windows.Forms.Button();
             this.buttonSetGarmBus = new System.Windows.Forms.Button();
             this.groupBoxTakingBus = new System.Windows.Forms.GroupBox();
-            this.buttonLastTaken = new System.Windows.Forms.Button();
             this.buttonTakeBus = new System.Windows.Forms.Button();
             this.maskedTextBoxNumber = new System.Windows.Forms.MaskedTextBox();
             this.labelPlace = new System.Windows.Forms.Label();
-            this.labelAutovoksal = new System.Windows.Forms.Label();
-            this.textBoxAutovoksalName = new System.Windows.Forms.TextBox();
-            this.buttonAddAutovoksal = new System.Windows.Forms.Button();
-            this.listBoxAutovoksal = new System.Windows.Forms.ListBox();
-            this.buttonDeleteAutovoksal = new System.Windows.Forms.Button();
+            this.comboBoxNumberDoors = new System.Windows.Forms.ComboBox();
+            this.comboBoxFormDoors = new System.Windows.Forms.ComboBox();
+            this.maskedTextBoxDigit = new System.Windows.Forms.MaskedTextBox();
+            this.buttonNumberOfBus = new System.Windows.Forms.Button();
+            this.buttonNumberOfEmpty = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAutovoksal)).BeginInit();
             this.groupBoxTakingBus.SuspendLayout();
             this.SuspendLayout();
@@ -56,7 +56,7 @@
             // 
             // buttonSetBus
             // 
-            this.buttonSetBus.Location = new System.Drawing.Point(895, 268);
+            this.buttonSetBus.Location = new System.Drawing.Point(894, 28);
             this.buttonSetBus.Name = "buttonSetBus";
             this.buttonSetBus.Size = new System.Drawing.Size(150, 51);
             this.buttonSetBus.TabIndex = 1;
@@ -66,7 +66,7 @@
             // 
             // buttonSetGarmBus
             // 
-            this.buttonSetGarmBus.Location = new System.Drawing.Point(893, 325);
+            this.buttonSetGarmBus.Location = new System.Drawing.Point(893, 145);
             this.buttonSetGarmBus.Name = "buttonSetGarmBus";
             this.buttonSetGarmBus.Size = new System.Drawing.Size(150, 64);
             this.buttonSetGarmBus.TabIndex = 2;
@@ -76,32 +76,21 @@
             // 
             // groupBoxTakingBus
             // 
-            this.groupBoxTakingBus.Controls.Add(this.buttonLastTaken);
             this.groupBoxTakingBus.Controls.Add(this.buttonTakeBus);
             this.groupBoxTakingBus.Controls.Add(this.maskedTextBoxNumber);
             this.groupBoxTakingBus.Controls.Add(this.labelPlace);
-            this.groupBoxTakingBus.Location = new System.Drawing.Point(861, 407);
+            this.groupBoxTakingBus.Location = new System.Drawing.Point(894, 441);
             this.groupBoxTakingBus.Name = "groupBoxTakingBus";
-            this.groupBoxTakingBus.Size = new System.Drawing.Size(205, 146);
+            this.groupBoxTakingBus.Size = new System.Drawing.Size(150, 109);
             this.groupBoxTakingBus.TabIndex = 3;
             this.groupBoxTakingBus.TabStop = false;
             this.groupBoxTakingBus.Text = "Забрать автобус";
             // 
-            // buttonLastTaken
-            // 
-            this.buttonLastTaken.Location = new System.Drawing.Point(6, 100);
-            this.buttonLastTaken.Name = "buttonLastTaken";
-            this.buttonLastTaken.Size = new System.Drawing.Size(176, 30);
-            this.buttonLastTaken.TabIndex = 3;
-            this.buttonLastTaken.Text = "Последний забранный";
-            this.buttonLastTaken.UseVisualStyleBackColor = true;
-            this.buttonLastTaken.Click += new System.EventHandler(this.buttonLastTaken_Click);
-            // 
             // buttonTakeBus
             // 
-            this.buttonTakeBus.Location = new System.Drawing.Point(6, 64);
+            this.buttonTakeBus.Location = new System.Drawing.Point(17, 64);
             this.buttonTakeBus.Name = "buttonTakeBus";
-            this.buttonTakeBus.Size = new System.Drawing.Size(176, 30);
+            this.buttonTakeBus.Size = new System.Drawing.Size(103, 30);
             this.buttonTakeBus.TabIndex = 2;
             this.buttonTakeBus.Text = "Забрать";
             this.buttonTakeBus.UseVisualStyleBackColor = true;
@@ -123,61 +112,69 @@
             this.labelPlace.TabIndex = 0;
             this.labelPlace.Text = "Место:";
             // 
-            // labelAutovoksal
+            // comboBoxNumberDoors
             // 
-            this.labelAutovoksal.AutoSize = true;
-            this.labelAutovoksal.Location = new System.Drawing.Point(929, 9);
-            this.labelAutovoksal.Name = "labelAutovoksal";
-            this.labelAutovoksal.Size = new System.Drawing.Size(84, 17);
-            this.labelAutovoksal.TabIndex = 10;
-            this.labelAutovoksal.Text = "Автовокзал";
+            this.comboBoxNumberDoors.FormattingEnabled = true;
+            this.comboBoxNumberDoors.Location = new System.Drawing.Point(894, 85);
+            this.comboBoxNumberDoors.Name = "comboBoxNumberDoors";
+            this.comboBoxNumberDoors.Size = new System.Drawing.Size(150, 24);
+            this.comboBoxNumberDoors.TabIndex = 4;
             // 
-            // textBoxAutovoksalName
+            // comboBoxFormDoors
             // 
-            this.textBoxAutovoksalName.Location = new System.Drawing.Point(894, 29);
-            this.textBoxAutovoksalName.Name = "textBoxAutovoksalName";
-            this.textBoxAutovoksalName.Size = new System.Drawing.Size(149, 22);
-            this.textBoxAutovoksalName.TabIndex = 11;
+            this.comboBoxFormDoors.FormattingEnabled = true;
+            this.comboBoxFormDoors.Location = new System.Drawing.Point(893, 115);
+            this.comboBoxFormDoors.Name = "comboBoxFormDoors";
+            this.comboBoxFormDoors.Size = new System.Drawing.Size(151, 24);
+            this.comboBoxFormDoors.TabIndex = 5;
             // 
-            // buttonAddAutovoksal
+            // maskedTextBoxDigit
             // 
-            this.buttonAddAutovoksal.Location = new System.Drawing.Point(895, 57);
-            this.buttonAddAutovoksal.Name = "buttonAddAutovoksal";
-            this.buttonAddAutovoksal.Size = new System.Drawing.Size(150, 42);
-            this.buttonAddAutovoksal.TabIndex = 12;
-            this.buttonAddAutovoksal.Text = "Добавить автовокзал";
-            this.buttonAddAutovoksal.UseVisualStyleBackColor = true;
-            this.buttonAddAutovoksal.Click += new System.EventHandler(this.buttonAddAutovoksal_Click);
+            this.maskedTextBoxDigit.Location = new System.Drawing.Point(914, 267);
+            this.maskedTextBoxDigit.Name = "maskedTextBoxDigit";
+            this.maskedTextBoxDigit.Size = new System.Drawing.Size(100, 22);
+            this.maskedTextBoxDigit.TabIndex = 6;
             // 
-            // listBoxAutovoksal
+            // buttonNumberOfBus
             // 
-            this.listBoxAutovoksal.FormattingEnabled = true;
-            this.listBoxAutovoksal.ItemHeight = 16;
-            this.listBoxAutovoksal.Location = new System.Drawing.Point(895, 105);
-            this.listBoxAutovoksal.Name = "listBoxAutovoksal";
-            this.listBoxAutovoksal.Size = new System.Drawing.Size(150, 100);
-            this.listBoxAutovoksal.TabIndex = 13;
+            this.buttonNumberOfBus.Location = new System.Drawing.Point(894, 295);
+            this.buttonNumberOfBus.Name = "buttonNumberOfBus";
+            this.buttonNumberOfBus.Size = new System.Drawing.Size(141, 46);
+            this.buttonNumberOfBus.TabIndex = 7;
+            this.buttonNumberOfBus.Text = "Количество автобусов";
+            this.buttonNumberOfBus.UseVisualStyleBackColor = true;
+            this.buttonNumberOfBus.Click += new System.EventHandler(this.buttonNumberOfBus_Click_1);
             // 
-            // buttonDeleteAutovoksal
+            // buttonNumberOfEmpty
             // 
-            this.buttonDeleteAutovoksal.Location = new System.Drawing.Point(894, 211);
-            this.buttonDeleteAutovoksal.Name = "buttonDeleteAutovoksal";
-            this.buttonDeleteAutovoksal.Size = new System.Drawing.Size(151, 42);
-            this.buttonDeleteAutovoksal.TabIndex = 14;
-            this.buttonDeleteAutovoksal.Text = "Удалить автовокзал";
-            this.buttonDeleteAutovoksal.UseVisualStyleBackColor = true;
-            this.buttonDeleteAutovoksal.Click += new System.EventHandler(this.buttonDeleteAutovoksal_Click);
+            this.buttonNumberOfEmpty.Location = new System.Drawing.Point(894, 347);
+            this.buttonNumberOfEmpty.Name = "buttonNumberOfEmpty";
+            this.buttonNumberOfEmpty.Size = new System.Drawing.Size(141, 51);
+            this.buttonNumberOfEmpty.TabIndex = 8;
+            this.buttonNumberOfEmpty.Text = "Количество пустых мест";
+            this.buttonNumberOfEmpty.UseVisualStyleBackColor = true;
+            this.buttonNumberOfEmpty.Click += new System.EventHandler(this.buttonNumberOfEmpty_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(844, 247);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(222, 17);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Попробуйте угадать количество";
             // 
             // FormAutovoksal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1078, 601);
-            this.Controls.Add(this.buttonDeleteAutovoksal);
-            this.Controls.Add(this.listBoxAutovoksal);
-            this.Controls.Add(this.buttonAddAutovoksal);
-            this.Controls.Add(this.textBoxAutovoksalName);
-            this.Controls.Add(this.labelAutovoksal);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.buttonNumberOfEmpty);
+            this.Controls.Add(this.buttonNumberOfBus);
+            this.Controls.Add(this.maskedTextBoxDigit);
+            this.Controls.Add(this.comboBoxFormDoors);
+            this.Controls.Add(this.comboBoxNumberDoors);
             this.Controls.Add(this.groupBoxTakingBus);
             this.Controls.Add(this.buttonSetGarmBus);
             this.Controls.Add(this.buttonSetBus);
@@ -201,11 +198,11 @@
         private System.Windows.Forms.Button buttonTakeBus;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxNumber;
         private System.Windows.Forms.Label labelPlace;
-        private System.Windows.Forms.Label labelAutovoksal;
-        private System.Windows.Forms.TextBox textBoxAutovoksalName;
-        private System.Windows.Forms.Button buttonAddAutovoksal;
-        private System.Windows.Forms.ListBox listBoxAutovoksal;
-        private System.Windows.Forms.Button buttonDeleteAutovoksal;
-        private System.Windows.Forms.Button buttonLastTaken;
+        private System.Windows.Forms.ComboBox comboBoxNumberDoors;
+        private System.Windows.Forms.ComboBox comboBoxFormDoors;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxDigit;
+        private System.Windows.Forms.Button buttonNumberOfBus;
+        private System.Windows.Forms.Button buttonNumberOfEmpty;
+        private System.Windows.Forms.Label label1;
     }
 }
