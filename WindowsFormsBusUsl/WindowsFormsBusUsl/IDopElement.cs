@@ -7,13 +7,10 @@ using System.Drawing;
 
 namespace WindowsFormsBusUsl
 {
-    public interface ITransport
+    public interface IDopElement
     {
-        void SetPosition(int x, int y, int width, int height);
+        int Digit { set; }
 
-        void MoveTransport(Direction direction);
-
-        void DrawTransport(Graphics g);
+        void DrawAdditions(Graphics g, Color dopColor, float x, float y);
     }
 }
-

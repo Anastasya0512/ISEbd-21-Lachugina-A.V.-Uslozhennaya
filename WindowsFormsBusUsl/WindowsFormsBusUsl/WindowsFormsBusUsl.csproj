@@ -50,7 +50,9 @@
     <Compile Include="Bus.cs" />
     <Compile Include="BusGarm.cs" />
     <Compile Include="Direction.cs" />
+    <Compile Include="DoorsEnum.cs" />
     <Compile Include="EasyBus.cs" />
+    <Compile Include="EllipseForm.cs" />
     <Compile Include="FormAutovoksal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +65,7 @@
     <Compile Include="FormBus.designer.cs">
       <DependentUpon>FormBus.cs</DependentUpon>
     </Compile>
+    <Compile Include="IDopElement.cs" />
     <Compile Include="ITransport.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -70,6 +73,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="RectangleForm.cs" />
+    <Compile Include="TriangleForm.cs" />
     <EmbeddedResource Include="FormAutovoksal.resx">
       <DependentUpon>FormAutovoksal.cs</DependentUpon>
     </EmbeddedResource>
