@@ -12,12 +12,16 @@ namespace WindowsFormsBusUsl
 {
     public partial class FormAutovoksal : Form
     {
-        private readonly Autovoksal<EasyBus> autovoksal;
+        private readonly Autovoksal<EasyBus, EllipseForm> autovoksal;
         public FormAutovoksal()
         {
             InitializeComponent();
-            autovoksal = new Autovoksal<EasyBus>(pictureBoxAutovoksal.Width, pictureBoxAutovoksal.Height);
+            autovoksal = new Autovoksal<EasyBus, EllipseForm>(pictureBoxAutovoksal.Width, pictureBoxAutovoksal.Height);
             Draw();
+            comboBoxNumberDoors.Items.AddRange(new string[] { "3 двери", "4 двери", "5 дверей" });
+            comboBoxFormDoors.Items.AddRange(new string[] { "Прямоугольные", "Овальные", "Треугольные" });
+            comboBoxNumberDoors.SelectedIndex = 0;
+            comboBoxFormDoors.SelectedIndex = 0;
         }
 
         private void Draw()
@@ -53,7 +57,7 @@ namespace WindowsFormsBusUsl
                 ColorDialog dialogDop = new ColorDialog();
                 if (dialogDop.ShowDialog() == DialogResult.OK)
                 {
-                    var bus = new BusGarm(100, 10000, dialog.Color, dialogDop.Color, true, true);
+                    var bus = new BusGarm(100, 100, dialog.Color, dialogDop.Color, true, true, (comboBoxNumberDoors.SelectedIndex + 3), comboBoxFormDoors.SelectedIndex);
                     if (autovoksal + bus)
                     {
                         Draw();
@@ -78,6 +82,38 @@ namespace WindowsFormsBusUsl
                     form.ShowDialog();
                 }
                 Draw();
+            }
+        }
+
+        private void buttonNumberOfBus_Click_1(object sender, EventArgs e)
+        {
+            if (maskedTextBoxDigit.Text != "")
+            {
+                int index = Convert.ToInt32(maskedTextBoxDigit.Text);
+                if (autovoksal == index)
+                {
+                    MessageBox.Show("Вы угадали количество транспорта на парковке");
+                }
+                else
+                {
+                    MessageBox.Show("Вы не угадали количество транспорта на парковке");
+                }
+            }
+        }
+
+        private void buttonNumberOfEmpty_Click(object sender, EventArgs e)
+        {
+            if (maskedTextBoxDigit.Text != "")
+            {
+                int index = Convert.ToInt32(maskedTextBoxDigit.Text);
+                if (autovoksal != index)
+                {
+                    MessageBox.Show("Вы угадали количество пустых мест на парковке");
+                }
+                else
+                {
+                    MessageBox.Show("Вы не угадали количество пустых мест на парковке");
+                }
             }
         }
     }

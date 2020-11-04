@@ -28,25 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.pictureBoxBus = new System.Windows.Forms.PictureBox();
             this.buttonCreateBus = new System.Windows.Forms.Button();
             this.buttonLeft = new System.Windows.Forms.Button();
+            this.buttonUp = new System.Windows.Forms.Button();
             this.buttonRight = new System.Windows.Forms.Button();
             this.buttonDown = new System.Windows.Forms.Button();
             this.buttonCreateBusGarm = new System.Windows.Forms.Button();
-            this.buttonUp = new System.Windows.Forms.Button();
-            this.pictureBoxBus = new System.Windows.Forms.PictureBox();
+            this.comboBoxNumberDoors = new System.Windows.Forms.ComboBox();
+            this.comboBoxFormDoors = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBus)).BeginInit();
             this.SuspendLayout();
             // 
+            // pictureBoxBus
+            // 
+            this.pictureBoxBus.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBoxBus.Location = new System.Drawing.Point(0, 0);
+            this.pictureBoxBus.Name = "pictureBoxBus";
+            this.pictureBoxBus.Size = new System.Drawing.Size(969, 568);
+            this.pictureBoxBus.TabIndex = 0;
+            this.pictureBoxBus.TabStop = false;
+            this.pictureBoxBus.Click += new System.EventHandler(this.buttonMove_Click);
+            // 
             // buttonCreateBus
             // 
-            this.buttonCreateBus.Location = new System.Drawing.Point(12, 12);
+            this.buttonCreateBus.Location = new System.Drawing.Point(746, 12);
             this.buttonCreateBus.Name = "buttonCreateBus";
-            this.buttonCreateBus.Size = new System.Drawing.Size(321, 30);
+            this.buttonCreateBus.Size = new System.Drawing.Size(211, 32);
             this.buttonCreateBus.TabIndex = 1;
             this.buttonCreateBus.Text = "Создать автобус";
             this.buttonCreateBus.UseVisualStyleBackColor = true;
-            this.buttonCreateBus.Click += new System.EventHandler(this.buttonCreateBus_Click_1);
             // 
             // buttonLeft
             // 
@@ -59,6 +70,18 @@
             this.buttonLeft.TabIndex = 2;
             this.buttonLeft.UseVisualStyleBackColor = true;
             this.buttonLeft.Click += new System.EventHandler(this.buttonMove_Click);
+            // 
+            // buttonUp
+            // 
+            this.buttonUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonUp.BackgroundImage = global::WindowsFormsBusUsl.Properties.Resources.верх;
+            this.buttonUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonUp.Location = new System.Drawing.Point(869, 480);
+            this.buttonUp.Name = "buttonUp";
+            this.buttonUp.Size = new System.Drawing.Size(30, 30);
+            this.buttonUp.TabIndex = 3;
+            this.buttonUp.UseVisualStyleBackColor = true;
+            this.buttonUp.Click += new System.EventHandler(this.buttonMove_Click);
             // 
             // buttonRight
             // 
@@ -86,41 +109,37 @@
             // 
             // buttonCreateBusGarm
             // 
-            this.buttonCreateBusGarm.Location = new System.Drawing.Point(354, 12);
+            this.buttonCreateBusGarm.Location = new System.Drawing.Point(746, 50);
             this.buttonCreateBusGarm.Name = "buttonCreateBusGarm";
-            this.buttonCreateBusGarm.Size = new System.Drawing.Size(380, 30);
+            this.buttonCreateBusGarm.Size = new System.Drawing.Size(211, 45);
             this.buttonCreateBusGarm.TabIndex = 6;
             this.buttonCreateBusGarm.Text = "Создать автобус с гармошкой";
             this.buttonCreateBusGarm.UseVisualStyleBackColor = true;
             this.buttonCreateBusGarm.Click += new System.EventHandler(this.buttonCreateBusGarm_Click);
             // 
-            // buttonUp
+            // comboBoxNumberDoors
             // 
-            this.buttonUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonUp.BackgroundImage = global::WindowsFormsBusUsl.Properties.Resources.верх;
-            this.buttonUp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonUp.Location = new System.Drawing.Point(869, 480);
-            this.buttonUp.Name = "buttonUp";
-            this.buttonUp.Size = new System.Drawing.Size(30, 30);
-            this.buttonUp.TabIndex = 3;
-            this.buttonUp.UseVisualStyleBackColor = true;
-            this.buttonUp.Click += new System.EventHandler(this.buttonMove_Click);
+            this.comboBoxNumberDoors.FormattingEnabled = true;
+            this.comboBoxNumberDoors.Location = new System.Drawing.Point(746, 101);
+            this.comboBoxNumberDoors.Name = "comboBoxNumberDoors";
+            this.comboBoxNumberDoors.Size = new System.Drawing.Size(211, 24);
+            this.comboBoxNumberDoors.TabIndex = 7;
             // 
-            // pictureBoxBus
+            // comboBoxFormDoors
             // 
-            this.pictureBoxBus.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBoxBus.Location = new System.Drawing.Point(0, 0);
-            this.pictureBoxBus.Name = "pictureBoxBus";
-            this.pictureBoxBus.Size = new System.Drawing.Size(969, 568);
-            this.pictureBoxBus.TabIndex = 0;
-            this.pictureBoxBus.TabStop = false;
-            this.pictureBoxBus.Click += new System.EventHandler(this.buttonMove_Click);
+            this.comboBoxFormDoors.FormattingEnabled = true;
+            this.comboBoxFormDoors.Location = new System.Drawing.Point(746, 131);
+            this.comboBoxFormDoors.Name = "comboBoxFormDoors";
+            this.comboBoxFormDoors.Size = new System.Drawing.Size(211, 24);
+            this.comboBoxFormDoors.TabIndex = 8;
             // 
             // FormBus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(969, 568);
+            this.Controls.Add(this.comboBoxFormDoors);
+            this.Controls.Add(this.comboBoxNumberDoors);
             this.Controls.Add(this.buttonCreateBusGarm);
             this.Controls.Add(this.buttonDown);
             this.Controls.Add(this.buttonRight);
@@ -145,6 +164,8 @@
         private System.Windows.Forms.Button buttonRight;
         private System.Windows.Forms.Button buttonDown;
         private System.Windows.Forms.Button buttonCreateBusGarm;
+        private System.Windows.Forms.ComboBox comboBoxNumberDoors;
+        private System.Windows.Forms.ComboBox comboBoxFormDoors;
     }
 }
 

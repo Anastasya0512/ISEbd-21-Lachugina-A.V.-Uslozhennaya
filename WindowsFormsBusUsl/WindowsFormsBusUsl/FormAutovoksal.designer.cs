@@ -35,6 +35,12 @@
             this.buttonTakeBus = new System.Windows.Forms.Button();
             this.maskedTextBoxNumber = new System.Windows.Forms.MaskedTextBox();
             this.labelPlace = new System.Windows.Forms.Label();
+            this.comboBoxNumberDoors = new System.Windows.Forms.ComboBox();
+            this.comboBoxFormDoors = new System.Windows.Forms.ComboBox();
+            this.maskedTextBoxDigit = new System.Windows.Forms.MaskedTextBox();
+            this.buttonNumberOfBus = new System.Windows.Forms.Button();
+            this.buttonNumberOfEmpty = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAutovoksal)).BeginInit();
             this.groupBoxTakingBus.SuspendLayout();
             this.SuspendLayout();
@@ -60,7 +66,7 @@
             // 
             // buttonSetGarmBus
             // 
-            this.buttonSetGarmBus.Location = new System.Drawing.Point(894, 85);
+            this.buttonSetGarmBus.Location = new System.Drawing.Point(893, 145);
             this.buttonSetGarmBus.Name = "buttonSetGarmBus";
             this.buttonSetGarmBus.Size = new System.Drawing.Size(150, 64);
             this.buttonSetGarmBus.TabIndex = 2;
@@ -73,7 +79,7 @@
             this.groupBoxTakingBus.Controls.Add(this.buttonTakeBus);
             this.groupBoxTakingBus.Controls.Add(this.maskedTextBoxNumber);
             this.groupBoxTakingBus.Controls.Add(this.labelPlace);
-            this.groupBoxTakingBus.Location = new System.Drawing.Point(894, 173);
+            this.groupBoxTakingBus.Location = new System.Drawing.Point(894, 441);
             this.groupBoxTakingBus.Name = "groupBoxTakingBus";
             this.groupBoxTakingBus.Size = new System.Drawing.Size(150, 109);
             this.groupBoxTakingBus.TabIndex = 3;
@@ -106,11 +112,69 @@
             this.labelPlace.TabIndex = 0;
             this.labelPlace.Text = "Место:";
             // 
+            // comboBoxNumberDoors
+            // 
+            this.comboBoxNumberDoors.FormattingEnabled = true;
+            this.comboBoxNumberDoors.Location = new System.Drawing.Point(894, 85);
+            this.comboBoxNumberDoors.Name = "comboBoxNumberDoors";
+            this.comboBoxNumberDoors.Size = new System.Drawing.Size(150, 24);
+            this.comboBoxNumberDoors.TabIndex = 4;
+            // 
+            // comboBoxFormDoors
+            // 
+            this.comboBoxFormDoors.FormattingEnabled = true;
+            this.comboBoxFormDoors.Location = new System.Drawing.Point(893, 115);
+            this.comboBoxFormDoors.Name = "comboBoxFormDoors";
+            this.comboBoxFormDoors.Size = new System.Drawing.Size(151, 24);
+            this.comboBoxFormDoors.TabIndex = 5;
+            // 
+            // maskedTextBoxDigit
+            // 
+            this.maskedTextBoxDigit.Location = new System.Drawing.Point(914, 267);
+            this.maskedTextBoxDigit.Name = "maskedTextBoxDigit";
+            this.maskedTextBoxDigit.Size = new System.Drawing.Size(100, 22);
+            this.maskedTextBoxDigit.TabIndex = 6;
+            // 
+            // buttonNumberOfBus
+            // 
+            this.buttonNumberOfBus.Location = new System.Drawing.Point(894, 295);
+            this.buttonNumberOfBus.Name = "buttonNumberOfBus";
+            this.buttonNumberOfBus.Size = new System.Drawing.Size(141, 46);
+            this.buttonNumberOfBus.TabIndex = 7;
+            this.buttonNumberOfBus.Text = "Количество автобусов";
+            this.buttonNumberOfBus.UseVisualStyleBackColor = true;
+            this.buttonNumberOfBus.Click += new System.EventHandler(this.buttonNumberOfBus_Click_1);
+            // 
+            // buttonNumberOfEmpty
+            // 
+            this.buttonNumberOfEmpty.Location = new System.Drawing.Point(894, 347);
+            this.buttonNumberOfEmpty.Name = "buttonNumberOfEmpty";
+            this.buttonNumberOfEmpty.Size = new System.Drawing.Size(141, 51);
+            this.buttonNumberOfEmpty.TabIndex = 8;
+            this.buttonNumberOfEmpty.Text = "Количество пустых мест";
+            this.buttonNumberOfEmpty.UseVisualStyleBackColor = true;
+            this.buttonNumberOfEmpty.Click += new System.EventHandler(this.buttonNumberOfEmpty_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(844, 247);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(222, 17);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Попробуйте угадать количество";
+            // 
             // FormAutovoksal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1078, 601);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.buttonNumberOfEmpty);
+            this.Controls.Add(this.buttonNumberOfBus);
+            this.Controls.Add(this.maskedTextBoxDigit);
+            this.Controls.Add(this.comboBoxFormDoors);
+            this.Controls.Add(this.comboBoxNumberDoors);
             this.Controls.Add(this.groupBoxTakingBus);
             this.Controls.Add(this.buttonSetGarmBus);
             this.Controls.Add(this.buttonSetBus);
@@ -121,6 +185,7 @@
             this.groupBoxTakingBus.ResumeLayout(false);
             this.groupBoxTakingBus.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -133,5 +198,11 @@
         private System.Windows.Forms.Button buttonTakeBus;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxNumber;
         private System.Windows.Forms.Label labelPlace;
+        private System.Windows.Forms.ComboBox comboBoxNumberDoors;
+        private System.Windows.Forms.ComboBox comboBoxFormDoors;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxDigit;
+        private System.Windows.Forms.Button buttonNumberOfBus;
+        private System.Windows.Forms.Button buttonNumberOfEmpty;
+        private System.Windows.Forms.Label label1;
     }
 }

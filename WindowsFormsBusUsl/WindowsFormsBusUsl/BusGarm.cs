@@ -13,35 +13,20 @@ namespace WindowsFormsBusUsl
     /// </summary>
     public class BusGarm : Bus
     {
-        /// <summary>
-        /// Дополнительный цвет
-        /// </summary>
         public Color DopColor { private set; get; }
 
-        /// <summary>
-        /// Признак наличия гармошки
-        /// </summary>
         public bool Garmoshka { private set; get; }
 
-        /// <summary>
-        /// Признак наличия третьей оси колес
-        /// </summary>
         public bool ThirdOs { private set; get; }
 
-        /// <summary>
-        /// Конструктор
-        /// </summary>
-        /// <param name="maxSpeed">Максимальная скорость</param>
-        /// <param name="weight">Вес автобуса</param>
-        /// <param name="mainColor">Основной цвет кузова</param>
-        /// <param name="dopColor">Дополнительный цвет</param>
-        /// <param name="garmoshka">Признак наличия гармошки</param>
-        /// <param name="thirdOs">Признак наличия третьей оси</param>
-        public BusGarm(int maxSpeed, float weight, Color mainColor, Color dopColor, bool garmoshka, bool thirdOs) : base(maxSpeed, weight, mainColor, 194, 68)
+        IDopElement DoorForm;
+
+        public BusGarm(int maxSpeed, float weight, Color mainColor, Color dopColor, bool garmoshka, bool thirdOs, int numberDoors, int formDoors) : base(maxSpeed, weight, mainColor, 194, 68)
         {
             DopColor = dopColor;
             Garmoshka = garmoshka;
             ThirdOs = thirdOs;
+            DoorForm = GetForm(formDoors, numberDoors);
         }
 
         public override void DrawTransport(Graphics g)
@@ -49,10 +34,10 @@ namespace WindowsFormsBusUsl
             Brush brDop = new SolidBrush(DopColor);
             Pen os = new Pen(Color.Black, 4);
             Pen luke = new Pen(Color.Black);
-            Brush white = new SolidBrush(Color.White);     
+            Brush white = new SolidBrush(Color.White);
             Brush red = new SolidBrush(MainColor);
             Brush okno = new SolidBrush(Color.DarkGray);
-            
+
             base.DrawTransport(g);
 
             //отрисуем гармошку
@@ -78,6 +63,20 @@ namespace WindowsFormsBusUsl
                 g.DrawEllipse(os, _startPosX + 148, _startPosY + 50, 17, 17);
                 g.FillEllipse(white, _startPosX + 150, _startPosY + 52, 13, 13);
             }
+            DoorForm.DrawAdditions(g, DopColor, _startPosX, _startPosY);
+        }
+        private IDopElement GetForm(int formDoors, int numberDoors)
+        {
+            switch (formDoors)
+            {
+                case 0:
+                    return new RectangleForm(numberDoors, DopColor);
+                case 1:
+                    return new EllipseForm(numberDoors, DopColor);
+                case 2:
+                    return new TriangleForm(numberDoors, DopColor);
+            }
+            return null;
         }
     }
 }

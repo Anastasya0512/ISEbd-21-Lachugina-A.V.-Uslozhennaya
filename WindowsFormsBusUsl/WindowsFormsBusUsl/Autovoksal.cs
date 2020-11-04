@@ -11,7 +11,7 @@ namespace WindowsFormsBusUsl
     /// Параметризованный класс для хранения набора объектов от интерфейса ITransport
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class Autovoksal<T> where T : class, ITransport
+    public class Autovoksal<T, K> where T : class, ITransport where K : class, IDopElement
     {
         /// <summary>
         /// Массив объектов, которые храним
@@ -43,7 +43,7 @@ namespace WindowsFormsBusUsl
             pictureHeight = picHeight;
         }
 
-        public static bool operator +(Autovoksal<T> p, T bus)
+        public static bool operator +(Autovoksal<T, K> p, T bus)
         {
             for (int i = 0; i < p._places.Length; i++)
             {
@@ -57,7 +57,7 @@ namespace WindowsFormsBusUsl
             return false;
         }
 
-        public static T operator -(Autovoksal<T> p, int index)
+        public static T operator -(Autovoksal<T, K> p, int index)
         {
             if ((index < p._places.Length) && (index >= 0))
             {
@@ -67,7 +67,31 @@ namespace WindowsFormsBusUsl
             }
             return null;
         }
-      
+        public static bool operator ==(Autovoksal<T, K> p, int numBus)
+        {
+            int curNumBus = 0;
+            for (int i = 0; i < p._places.Length; ++i)
+            {
+                if (p._places[i] != null)
+                {
+                    curNumBus++;
+                }
+            }
+            return numBus == curNumBus;
+        }
+
+        public static bool operator !=(Autovoksal<T, K> p, int numBus)
+        {
+            int curNumBus = 0;
+            for (int i = 0; i < p._places.Length; ++i)
+            {
+                if (p._places[i] == null)
+                {
+                    curNumBus++;
+                }
+            }
+            return numBus == curNumBus;
+        }
         /// <summary>
         /// Метод отрисовки парковки
         /// </summary>
