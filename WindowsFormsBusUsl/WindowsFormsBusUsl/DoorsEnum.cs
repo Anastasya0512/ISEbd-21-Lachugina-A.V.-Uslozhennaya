@@ -6,12 +6,10 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsBusUsl
 {
-    enum ElementsEnum
+    public enum DoorsEnum
     {
-        Triangle,
-
-        Rectangle,
-
-        Ellipse,
+        Three = 3,
+        Four,
+        Five
     }
 }

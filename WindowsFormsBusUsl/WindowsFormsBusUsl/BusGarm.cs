@@ -21,24 +21,12 @@ namespace WindowsFormsBusUsl
 
         IDopElement DoorForm;
 
-        public BusGarm(int maxSpeed, float weight, Color mainColor, Color dopColor, bool garmoshka, bool thirdOs, int doorform) : base(maxSpeed, weight, mainColor, 194, 68)
+        public BusGarm(int maxSpeed, float weight, Color mainColor, Color dopColor, bool garmoshka, bool thirdOs, int numberDoors, int formDoors) : base(maxSpeed, weight, mainColor, 194, 68)
         {
             DopColor = dopColor;
             Garmoshka = garmoshka;
             ThirdOs = thirdOs;
-
-            if (doorform == 1)
-            {
-                DoorForm = new TriangleForm(doorform, dopColor);
-            }
-            else if (doorform == 2)
-            {
-                DoorForm = new RectangleForm(doorform, dopColor);
-            }
-            else if (doorform == 3)
-            {
-                DoorForm = new EllipseForm(doorform, dopColor);
-            }
+            DoorForm = GetForm(formDoors, numberDoors);
         }
 
         public override void DrawTransport(Graphics g)
@@ -75,7 +63,20 @@ namespace WindowsFormsBusUsl
                 g.DrawEllipse(os, _startPosX + 148, _startPosY + 50, 17, 17);
                 g.FillEllipse(white, _startPosX + 150, _startPosY + 52, 13, 13);
             }
-            DoorForm.DrawElement(g, DopColor, _startPosX, _startPosY);
+            DoorForm.DrawAdditions(g, DopColor, _startPosX, _startPosY);
+        }
+        private IDopElement GetForm(int formDoors, int numberDoors)
+        {
+            switch (formDoors)
+            {
+                case 0:
+                    return new RectangleForm(numberDoors, DopColor);
+                case 1:
+                    return new EllipseForm(numberDoors, DopColor);
+                case 2:
+                    return new TriangleForm(numberDoors, DopColor);
+            }
+            return null;
         }
     }
 }

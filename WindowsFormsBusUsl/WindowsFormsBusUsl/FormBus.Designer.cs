@@ -34,14 +34,10 @@
             this.buttonUp = new System.Windows.Forms.Button();
             this.buttonRight = new System.Windows.Forms.Button();
             this.buttonDown = new System.Windows.Forms.Button();
-            this.groupBoxBusGarm = new System.Windows.Forms.GroupBox();
-            this.labelFormDoor = new System.Windows.Forms.Label();
-            this.checkBoxRectangle = new System.Windows.Forms.CheckBox();
-            this.checkBoxEllipse = new System.Windows.Forms.CheckBox();
-            this.checkBoxTriangle = new System.Windows.Forms.CheckBox();
             this.buttonCreateBusGarm = new System.Windows.Forms.Button();
+            this.comboBoxNumberDoors = new System.Windows.Forms.ComboBox();
+            this.comboBoxFormDoors = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBus)).BeginInit();
-            this.groupBoxBusGarm.SuspendLayout();
             this.SuspendLayout();
             // 
             // pictureBoxBus
@@ -56,11 +52,11 @@
             // 
             // buttonCreateBus
             // 
-            this.buttonCreateBus.Location = new System.Drawing.Point(12, 12);
+            this.buttonCreateBus.Location = new System.Drawing.Point(746, 12);
             this.buttonCreateBus.Name = "buttonCreateBus";
-            this.buttonCreateBus.Size = new System.Drawing.Size(91, 32);
+            this.buttonCreateBus.Size = new System.Drawing.Size(211, 32);
             this.buttonCreateBus.TabIndex = 1;
-            this.buttonCreateBus.Text = "Создать";
+            this.buttonCreateBus.Text = "Создать автобус";
             this.buttonCreateBus.UseVisualStyleBackColor = true;
             this.buttonCreateBus.Click += new System.EventHandler(this.buttonCreateBus_Click);
             // 
@@ -112,75 +108,40 @@
             this.buttonDown.UseVisualStyleBackColor = true;
             this.buttonDown.Click += new System.EventHandler(this.buttonMove_Click);
             // 
-            // groupBoxBusGarm
-            // 
-            this.groupBoxBusGarm.Controls.Add(this.buttonCreateBusGarm);
-            this.groupBoxBusGarm.Controls.Add(this.checkBoxTriangle);
-            this.groupBoxBusGarm.Controls.Add(this.checkBoxEllipse);
-            this.groupBoxBusGarm.Controls.Add(this.checkBoxRectangle);
-            this.groupBoxBusGarm.Controls.Add(this.labelFormDoor);
-            this.groupBoxBusGarm.Location = new System.Drawing.Point(739, 12);
-            this.groupBoxBusGarm.Name = "groupBoxBusGarm";
-            this.groupBoxBusGarm.Size = new System.Drawing.Size(218, 193);
-            this.groupBoxBusGarm.TabIndex = 6;
-            this.groupBoxBusGarm.TabStop = false;
-            this.groupBoxBusGarm.Text = "Создать автобус с гармошкой";
-            // 
-            // labelFormDoor
-            // 
-            this.labelFormDoor.AutoSize = true;
-            this.labelFormDoor.Location = new System.Drawing.Point(10, 43);
-            this.labelFormDoor.Name = "labelFormDoor";
-            this.labelFormDoor.Size = new System.Drawing.Size(172, 17);
-            this.labelFormDoor.TabIndex = 0;
-            this.labelFormDoor.Text = "Выберите форму дверей";
-            // 
-            // checkBoxRectangle
-            // 
-            this.checkBoxRectangle.AutoSize = true;
-            this.checkBoxRectangle.Location = new System.Drawing.Point(13, 71);
-            this.checkBoxRectangle.Name = "checkBoxRectangle";
-            this.checkBoxRectangle.Size = new System.Drawing.Size(132, 21);
-            this.checkBoxRectangle.TabIndex = 1;
-            this.checkBoxRectangle.Text = "Прямоугольная";
-            this.checkBoxRectangle.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxEllipse
-            // 
-            this.checkBoxEllipse.AutoSize = true;
-            this.checkBoxEllipse.Location = new System.Drawing.Point(13, 98);
-            this.checkBoxEllipse.Name = "checkBoxEllipse";
-            this.checkBoxEllipse.Size = new System.Drawing.Size(95, 21);
-            this.checkBoxEllipse.TabIndex = 2;
-            this.checkBoxEllipse.Text = "Овальная";
-            this.checkBoxEllipse.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxTriangle
-            // 
-            this.checkBoxTriangle.AutoSize = true;
-            this.checkBoxTriangle.Location = new System.Drawing.Point(13, 125);
-            this.checkBoxTriangle.Name = "checkBoxTriangle";
-            this.checkBoxTriangle.Size = new System.Drawing.Size(114, 21);
-            this.checkBoxTriangle.TabIndex = 3;
-            this.checkBoxTriangle.Text = "Треугольная";
-            this.checkBoxTriangle.UseVisualStyleBackColor = true;
-            // 
             // buttonCreateBusGarm
             // 
-            this.buttonCreateBusGarm.Location = new System.Drawing.Point(13, 152);
+            this.buttonCreateBusGarm.Location = new System.Drawing.Point(746, 50);
             this.buttonCreateBusGarm.Name = "buttonCreateBusGarm";
-            this.buttonCreateBusGarm.Size = new System.Drawing.Size(95, 37);
-            this.buttonCreateBusGarm.TabIndex = 4;
-            this.buttonCreateBusGarm.Text = "Создать";
+            this.buttonCreateBusGarm.Size = new System.Drawing.Size(211, 45);
+            this.buttonCreateBusGarm.TabIndex = 6;
+            this.buttonCreateBusGarm.Text = "Создать автобус с гармошкой";
             this.buttonCreateBusGarm.UseVisualStyleBackColor = true;
-            this.buttonCreateBusGarm.Click += new System.EventHandler(this.buttonCreateBusGarm_Click);
+            this.buttonCreateBusGarm.Click += new System.EventHandler(this.buttonCreateBusGarm_Click_1);
+            // 
+            // comboBoxNumberDoors
+            // 
+            this.comboBoxNumberDoors.FormattingEnabled = true;
+            this.comboBoxNumberDoors.Location = new System.Drawing.Point(746, 101);
+            this.comboBoxNumberDoors.Name = "comboBoxNumberDoors";
+            this.comboBoxNumberDoors.Size = new System.Drawing.Size(211, 24);
+            this.comboBoxNumberDoors.TabIndex = 7;
+            // 
+            // comboBoxFormDoors
+            // 
+            this.comboBoxFormDoors.FormattingEnabled = true;
+            this.comboBoxFormDoors.Location = new System.Drawing.Point(746, 131);
+            this.comboBoxFormDoors.Name = "comboBoxFormDoors";
+            this.comboBoxFormDoors.Size = new System.Drawing.Size(211, 24);
+            this.comboBoxFormDoors.TabIndex = 8;
             // 
             // FormBus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(969, 568);
-            this.Controls.Add(this.groupBoxBusGarm);
+            this.Controls.Add(this.comboBoxFormDoors);
+            this.Controls.Add(this.comboBoxNumberDoors);
+            this.Controls.Add(this.buttonCreateBusGarm);
             this.Controls.Add(this.buttonDown);
             this.Controls.Add(this.buttonRight);
             this.Controls.Add(this.buttonUp);
@@ -191,8 +152,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Автобус";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBus)).EndInit();
-            this.groupBoxBusGarm.ResumeLayout(false);
-            this.groupBoxBusGarm.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -205,12 +164,9 @@
         private System.Windows.Forms.Button buttonUp;
         private System.Windows.Forms.Button buttonRight;
         private System.Windows.Forms.Button buttonDown;
-        private System.Windows.Forms.GroupBox groupBoxBusGarm;
         private System.Windows.Forms.Button buttonCreateBusGarm;
-        private System.Windows.Forms.CheckBox checkBoxTriangle;
-        private System.Windows.Forms.CheckBox checkBoxEllipse;
-        private System.Windows.Forms.CheckBox checkBoxRectangle;
-        private System.Windows.Forms.Label labelFormDoor;
+        private System.Windows.Forms.ComboBox comboBoxNumberDoors;
+        private System.Windows.Forms.ComboBox comboBoxFormDoors;
     }
 }
 

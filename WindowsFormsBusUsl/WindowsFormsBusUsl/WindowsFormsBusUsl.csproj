@@ -49,8 +49,8 @@
     <Compile Include="Bus.cs" />
     <Compile Include="BusGarm.cs" />
     <Compile Include="Direction.cs" />
+    <Compile Include="DoorsEnum.cs" />
     <Compile Include="EasyBus.cs" />
-    <Compile Include="ElementsEnum.cs" />
     <Compile Include="EllipseForm.cs" />
     <Compile Include="FormBus.cs">
       <SubType>Form</SubType>

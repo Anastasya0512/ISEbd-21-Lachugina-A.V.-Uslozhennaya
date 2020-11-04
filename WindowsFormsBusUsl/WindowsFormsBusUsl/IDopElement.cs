@@ -9,8 +9,8 @@ namespace WindowsFormsBusUsl
 {
     public interface IDopElement
     {
-        int SetNumberOfElements { set; }
+        int Digit { set; }
 
-        void DrawElement(Graphics g, Color dopColor, float x, float y);
+        void DrawAdditions(Graphics g, Color dopColor, float x, float y);
     }
 }
