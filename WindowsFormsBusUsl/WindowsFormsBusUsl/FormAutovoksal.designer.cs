@@ -38,9 +38,8 @@
             this.comboBoxNumberDoors = new System.Windows.Forms.ComboBox();
             this.comboBoxFormDoors = new System.Windows.Forms.ComboBox();
             this.maskedTextBoxDigit = new System.Windows.Forms.MaskedTextBox();
-            this.buttonNumberOfBus = new System.Windows.Forms.Button();
-            this.buttonNumberOfEmpty = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.buttonNumberOfEmpty = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAutovoksal)).BeginInit();
             this.groupBoxTakingBus.SuspendLayout();
             this.SuspendLayout();
@@ -135,26 +134,6 @@
             this.maskedTextBoxDigit.Size = new System.Drawing.Size(100, 22);
             this.maskedTextBoxDigit.TabIndex = 6;
             // 
-            // buttonNumberOfBus
-            // 
-            this.buttonNumberOfBus.Location = new System.Drawing.Point(894, 295);
-            this.buttonNumberOfBus.Name = "buttonNumberOfBus";
-            this.buttonNumberOfBus.Size = new System.Drawing.Size(141, 46);
-            this.buttonNumberOfBus.TabIndex = 7;
-            this.buttonNumberOfBus.Text = "Количество автобусов";
-            this.buttonNumberOfBus.UseVisualStyleBackColor = true;
-            this.buttonNumberOfBus.Click += new System.EventHandler(this.buttonNumberOfBus_Click_1);
-            // 
-            // buttonNumberOfEmpty
-            // 
-            this.buttonNumberOfEmpty.Location = new System.Drawing.Point(894, 347);
-            this.buttonNumberOfEmpty.Name = "buttonNumberOfEmpty";
-            this.buttonNumberOfEmpty.Size = new System.Drawing.Size(141, 51);
-            this.buttonNumberOfEmpty.TabIndex = 8;
-            this.buttonNumberOfEmpty.Text = "Количество пустых мест";
-            this.buttonNumberOfEmpty.UseVisualStyleBackColor = true;
-            this.buttonNumberOfEmpty.Click += new System.EventHandler(this.buttonNumberOfEmpty_Click);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -164,6 +143,16 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Попробуйте угадать количество";
             // 
+            // buttonNumberOfEmpty
+            // 
+            this.buttonNumberOfEmpty.Location = new System.Drawing.Point(894, 325);
+            this.buttonNumberOfEmpty.Name = "buttonNumberOfEmpty";
+            this.buttonNumberOfEmpty.Size = new System.Drawing.Size(141, 51);
+            this.buttonNumberOfEmpty.TabIndex = 8;
+            this.buttonNumberOfEmpty.Text = "Количество пустых мест";
+            this.buttonNumberOfEmpty.UseVisualStyleBackColor = true;
+            this.buttonNumberOfEmpty.Click += new System.EventHandler(this.buttonNumberOfEmpty_Click);
+            // 
             // FormAutovoksal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -171,7 +160,6 @@
             this.ClientSize = new System.Drawing.Size(1078, 601);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.buttonNumberOfEmpty);
-            this.Controls.Add(this.buttonNumberOfBus);
             this.Controls.Add(this.maskedTextBoxDigit);
             this.Controls.Add(this.comboBoxFormDoors);
             this.Controls.Add(this.comboBoxNumberDoors);
@@ -201,8 +189,7 @@
         private System.Windows.Forms.ComboBox comboBoxNumberDoors;
         private System.Windows.Forms.ComboBox comboBoxFormDoors;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxDigit;
-        private System.Windows.Forms.Button buttonNumberOfBus;
-        private System.Windows.Forms.Button buttonNumberOfEmpty;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button buttonNumberOfEmpty;
     }
 }

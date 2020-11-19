@@ -69,28 +69,24 @@ namespace WindowsFormsBusUsl
         }
         public static bool operator ==(Autovoksal<T, K> p, int numBus)
         {
-            int curNumBus = 0;
-            for (int i = 0; i < p._places.Length; ++i)
-            {
-                if (p._places[i] != null)
-                {
-                    curNumBus++;
-                }
-            }
-            return numBus == curNumBus;
+            return (p.Count() == numBus);
         }
 
         public static bool operator !=(Autovoksal<T, K> p, int numBus)
         {
-            int curNumBus = 0;
-            for (int i = 0; i < p._places.Length; ++i)
+            return (p.Count() != numBus);
+        }
+        private int Count()
+        {
+            int count = 0;
+            for (int i = 0; i < _places.Length; i++)
             {
-                if (p._places[i] == null)
+                if (_places[i] == null)
                 {
-                    curNumBus++;
+                    count++;
                 }
             }
-            return numBus == curNumBus;
+            return count;
         }
         /// <summary>
         /// Метод отрисовки парковки

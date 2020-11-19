@@ -85,34 +85,18 @@ namespace WindowsFormsBusUsl
             }
         }
 
-        private void buttonNumberOfBus_Click_1(object sender, EventArgs e)
+        private void buttonNumberOfEmpty_Click(object sender, EventArgs e)
         {
             if (maskedTextBoxDigit.Text != "")
             {
                 int index = Convert.ToInt32(maskedTextBoxDigit.Text);
                 if (autovoksal == index)
                 {
-                    MessageBox.Show("Вы угадали количество транспорта на парковке");
+                    MessageBox.Show("Количество свободных мест равно введенному значению");
                 }
-                else
+                else if (autovoksal != index)
                 {
-                    MessageBox.Show("Вы не угадали количество транспорта на парковке");
-                }
-            }
-        }
-
-        private void buttonNumberOfEmpty_Click(object sender, EventArgs e)
-        {
-            if (maskedTextBoxDigit.Text != "")
-            {
-                int index = Convert.ToInt32(maskedTextBoxDigit.Text);
-                if (autovoksal != index)
-                {
-                    MessageBox.Show("Вы угадали количество пустых мест на парковке");
-                }
-                else
-                {
-                    MessageBox.Show("Вы не угадали количество пустых мест на парковке");
+                    MessageBox.Show("Количество свободных мест не равно введенному значению");
                 }
             }
         }
