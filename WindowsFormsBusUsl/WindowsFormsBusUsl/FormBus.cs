@@ -26,11 +26,13 @@ namespace WindowsFormsBusUsl
             comboBoxNumberDoors.SelectedIndex = 0;
             comboBoxFormDoors.SelectedIndex = 0;
         }
+        
         public void SetBus(ITransport bus)
         {
             this.bus = bus;
             Draw();
         }
+        
         /// <summary>
         /// Метод отрисовки машины
         /// </summary>
@@ -80,7 +82,7 @@ namespace WindowsFormsBusUsl
             Draw();
         }
 
-        private void buttonCreateBusGarm_Click(object sender, EventArgs e)
+        private void buttonCreateBusGarm_Click_1(object sender, EventArgs e)
         {
             Random rnd = new Random();
 
