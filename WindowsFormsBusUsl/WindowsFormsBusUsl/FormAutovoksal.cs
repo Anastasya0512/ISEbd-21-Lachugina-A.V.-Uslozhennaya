@@ -12,59 +12,105 @@ namespace WindowsFormsBusUsl
 {
     public partial class FormAutovoksal : Form
     {
-        private readonly Autovoksal<EasyBus, EllipseForm> autovoksal;
+        private readonly AutovoksalCollection autovoksalCollection;
+
+        public LinkedList<EasyBus> buses = new LinkedList<EasyBus>();
         public FormAutovoksal()
         {
             InitializeComponent();
-            autovoksal = new Autovoksal<EasyBus, EllipseForm>(pictureBoxAutovoksal.Width, pictureBoxAutovoksal.Height);
-            Draw();
-            comboBoxNumberDoors.Items.AddRange(new string[] { "3 двери", "4 двери", "5 дверей" });
-            comboBoxFormDoors.Items.AddRange(new string[] { "Прямоугольные", "Овальные", "Треугольные" });
-            comboBoxNumberDoors.SelectedIndex = 0;
-            comboBoxFormDoors.SelectedIndex = 0;
+            autovoksalCollection = new AutovoksalCollection(pictureBoxAutovoksal.Width, pictureBoxAutovoksal.Height);
+            Draw();       
         }
-
+        private void ReloadLevels()
+        {
+            int index = listBoxAutovoksal.SelectedIndex;
+            listBoxAutovoksal.Items.Clear();
+            for (int i = 0; i < autovoksalCollection.Keys.Count; i++)
+            {
+                listBoxAutovoksal.Items.Add(autovoksalCollection.Keys[i]);
+            }
+            if (listBoxAutovoksal.Items.Count > 0 && (index == -1 || index >= listBoxAutovoksal.Items.Count))
+            {
+                listBoxAutovoksal.SelectedIndex = 0;
+            }
+            else if (listBoxAutovoksal.Items.Count > 0 && index > -1 && index < listBoxAutovoksal.Items.Count)
+            {
+                listBoxAutovoksal.SelectedIndex = index;
+            }
+        }
         private void Draw()
         {
-            Bitmap bmp = new Bitmap(pictureBoxAutovoksal.Width, pictureBoxAutovoksal.Height);
-            Graphics gr = Graphics.FromImage(bmp);
-            autovoksal.Draw(gr);
-            pictureBoxAutovoksal.Image = bmp;
+            if (listBoxAutovoksal.SelectedIndex > -1)
+            {
+                Bitmap bmp = new Bitmap(pictureBoxAutovoksal.Width, pictureBoxAutovoksal.Height);
+                Graphics gr = Graphics.FromImage(bmp);
+                autovoksalCollection[listBoxAutovoksal.SelectedItem.ToString()].Draw(gr);
+                pictureBoxAutovoksal.Image = bmp;
+            }
+        } 
+        private void buttonAddAutovoksal_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(textBoxAutovoksalName.Text))
+            {
+                MessageBox.Show("Введите название парковки", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            autovoksalCollection.AddAutovoksal(textBoxAutovoksalName.Text);
+            ReloadLevels();
+        }
+
+        private void buttonDelAutovoksal_Click(object sender, EventArgs e)
+        {
+            if (listBoxAutovoksal.SelectedIndex > -1)
+            {
+                if (MessageBox.Show($"Удалить автовокзал {listBoxAutovoksal.SelectedItem.ToString()}?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    autovoksalCollection.DelAutovoksal(listBoxAutovoksal.SelectedItem.ToString());
+                    ReloadLevels();
+                    Draw();
+                }
+            }
         }
 
         private void buttonSetBus_Click(object sender, EventArgs e)
         {
-            ColorDialog dialog = new ColorDialog();
-            if (dialog.ShowDialog() == DialogResult.OK)
+            if (listBoxAutovoksal.SelectedIndex > -1)
             {
-                var bus = new Bus(100, 1000, dialog.Color);
-                if (autovoksal + bus)
+                ColorDialog dialog = new ColorDialog();
+                if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    Draw();
-                }
-                else
-                {
-                    MessageBox.Show("Парковка переполнена");
+                    var bus = new Bus(100, 1000, dialog.Color);
+                    if (autovoksalCollection[listBoxAutovoksal.SelectedItem.ToString()] + bus)
+                    {
+                        Draw();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Парковка переполнена");
+                    }
                 }
             }
         }
 
         private void buttonSetGarmBus_Click_1(object sender, EventArgs e)
         {
-            ColorDialog dialog = new ColorDialog();
-            if (dialog.ShowDialog() == DialogResult.OK)
+            if (listBoxAutovoksal.SelectedIndex > -1)
             {
-                ColorDialog dialogDop = new ColorDialog();
-                if (dialogDop.ShowDialog() == DialogResult.OK)
+                ColorDialog dialog = new ColorDialog();
+                if (dialog.ShowDialog() == DialogResult.OK)
                 {
-                    var bus = new BusGarm(100, 100, dialog.Color, dialogDop.Color, true, true, (comboBoxNumberDoors.SelectedIndex + 3), comboBoxFormDoors.SelectedIndex);
-                    if (autovoksal + bus)
+                    ColorDialog dialogDop = new ColorDialog();
+                    if (dialogDop.ShowDialog() == DialogResult.OK)
                     {
-                        Draw();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Автовокзал переполнен");
+                        var bus = new BusGarm(100, 10000, dialog.Color, dialogDop.Color, true, true, 5, 1);
+                        if (autovoksalCollection[listBoxAutovoksal.SelectedItem.ToString()] + bus)
+                        {
+                            Draw();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Автовокзал переполнен");
+                        }
                     }
                 }
             }
@@ -72,49 +118,35 @@ namespace WindowsFormsBusUsl
 
         private void buttonTakeBus_Click_1(object sender, EventArgs e)
         {
-            if (maskedTextBoxNumber.Text != "")
+            if (listBoxAutovoksal.SelectedIndex > -1 && maskedTextBoxNumber.Text != "")
             {
-                var bus = autovoksal - Convert.ToInt32(maskedTextBoxNumber.Text);
+                var bus = autovoksalCollection[listBoxAutovoksal.SelectedItem.ToString()] - Convert.ToInt32(maskedTextBoxNumber.Text);
                 if (bus != null)
                 {
-                    FormBus form = new FormBus();
-                    form.SetBus(bus);
-                    form.ShowDialog();
+                    buses.AddFirst(bus);
                 }
                 Draw();
             }
         }
 
-        private void buttonNumberOfBus_Click_1(object sender, EventArgs e)
+        private void buttonSeeBus_Click(object sender, EventArgs e)
         {
-            if (maskedTextBoxDigit.Text != "")
+            if (buses.Count > 0)
             {
-                int index = Convert.ToInt32(maskedTextBoxDigit.Text);
-                if (autovoksal == index)
-                {
-                    MessageBox.Show("Вы угадали количество транспорта на парковке");
-                }
-                else
-                {
-                    MessageBox.Show("Вы не угадали количество транспорта на парковке");
-                }
+                FormBus form = new FormBus();
+                form.SetBus(buses.First.Value);
+                buses.RemoveFirst();
+                form.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Автобусов не осталось");
             }
         }
 
-        private void buttonNumberOfEmpty_Click(object sender, EventArgs e)
+        private void listBoxAutovoksal_SelectedIndexChanged_1(object sender, EventArgs e)
         {
-            if (maskedTextBoxDigit.Text != "")
-            {
-                int index = Convert.ToInt32(maskedTextBoxDigit.Text);
-                if (autovoksal != index)
-                {
-                    MessageBox.Show("Вы угадали количество пустых мест на парковке");
-                }
-                else
-                {
-                    MessageBox.Show("Вы не угадали количество пустых мест на парковке");
-                }
-            }
+            Draw();
         }
     }
 }
