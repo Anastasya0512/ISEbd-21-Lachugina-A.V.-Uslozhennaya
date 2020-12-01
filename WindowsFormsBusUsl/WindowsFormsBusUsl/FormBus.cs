@@ -15,25 +15,16 @@ namespace WindowsFormsBusUsl
     {
         private ITransport bus;
 
-        /// <summary>
-        /// Конструктор
-        /// </summary>
         public FormBus()
         {
             InitializeComponent();
-            comboBoxNumberDoors.Items.AddRange(new string[] { "3 двери", "4 двери", "5 дверей" });
-            comboBoxFormDoors.Items.AddRange(new string[] { "Прямоугольные", "Овальные", "Треугольные" });
-            comboBoxNumberDoors.SelectedIndex = 0;
-            comboBoxFormDoors.SelectedIndex = 0;
         }
         public void SetBus(ITransport bus)
         {
             this.bus = bus;
             Draw();
         }
-        /// <summary>
-        /// Метод отрисовки машины
-        /// </summary>
+
         private void Draw()
         {
             Bitmap bmp = new Bitmap(pictureBoxBus.Width, pictureBoxBus.Height);
@@ -41,23 +32,7 @@ namespace WindowsFormsBusUsl
             bus.DrawTransport(gr);
             pictureBoxBus.Image = bmp;
         }
-        /// <summary>
-        /// Обработка нажатия кнопки "Создать автобус"
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void buttonCreateBus_Click(object sender, EventArgs e)
-        {
-            Random rnd = new Random();
-            bus = new Bus(rnd.Next(150, 200), rnd.Next(5000, 10000), Color.Red);
-            bus.SetPosition(rnd.Next(10, 150), rnd.Next(10, 150), pictureBoxBus.Width, pictureBoxBus.Height);
-            Draw();
-        }
-        /// <summary>
-        /// Обработка нажатия кнопок управления
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+
         private void buttonMove_Click(object sender, EventArgs e)
         {
             //получаем имя кнопки
@@ -77,15 +52,6 @@ namespace WindowsFormsBusUsl
                     bus.MoveTransport(Direction.Right);
                     break;
             }
-            Draw();
-        }
-
-        private void buttonCreateBusGarm_Click(object sender, EventArgs e)
-        {
-            Random rnd = new Random();
-
-            bus = new BusGarm(rnd.Next(100, 300), rnd.Next(1000, 2000), Color.Red, Color.Black, true, true, (comboBoxNumberDoors.SelectedIndex + 3), comboBoxFormDoors.SelectedIndex);
-            bus.SetPosition(rnd.Next(10, 100), rnd.Next(10, 100), pictureBoxBus.Width, pictureBoxBus.Height);
             Draw();
         }
     }

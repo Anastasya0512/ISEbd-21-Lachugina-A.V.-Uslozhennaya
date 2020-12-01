@@ -74,7 +74,6 @@ namespace WindowsFormsBusUsl
             Brush fara = new SolidBrush(Color.Yellow);
             Brush oknoVod = new SolidBrush(Color.Gray);
             Brush okno = new SolidBrush(Color.DarkGray);
-            Brush fon = new SolidBrush(Color.FromArgb(240, 240, 240));
 
             //отрисуем зеркало
             g.FillRectangle(black, _startPosX + 20, _startPosY + 9, 10, 5);

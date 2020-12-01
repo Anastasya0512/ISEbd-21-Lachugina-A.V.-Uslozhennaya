@@ -9,32 +9,50 @@ namespace WindowsFormsBusUsl
 {
     class EllipseForm : IDopElement
     {
-        public int Digit { set => doorEnum = (DoorsEnum)value; }
-        private DoorsEnum doorEnum;
+        private DoorsEnum numberDoors;
         public Color DopColor { private set; get; }
-        public EllipseForm(int digit, Color dopColor)
+        public EllipseForm(int numberDoors, Color dopColor)
         {
-            Digit = digit;
+            Count = numberDoors;
             DopColor = dopColor;
+        }
+
+        public int Count
+        {
+            set
+            {
+                if (value == 3)
+                {
+                    numberDoors = DoorsEnum.Three;
+                }
+                if (value == 4)
+                {
+                    numberDoors = DoorsEnum.Four;
+                }
+                if (value == 5)
+                {
+                    numberDoors = DoorsEnum.Five;
+                }
+            }
         }
 
         public void DrawAdditions(Graphics g, Color DopColor, float x, float y)
         {
-            switch (doorEnum)
+            switch (numberDoors)
             {
                 case DoorsEnum.Three:
-                    DrawDoorThree(g, x, y);
+                    DrawDoorThree(g, DopColor, x, y);
                     break;
                 case DoorsEnum.Four:
-                    DrawDoorFour(g, x, y);
+                    DrawDoorFour(g, DopColor, x, y);
                     break;
                 case DoorsEnum.Five:
-                    DrawDoorFive(g, x, y);
+                    DrawDoorFive(g, DopColor, x, y);
                     break;
             }
         }
 
-        private void DrawDoorThree(Graphics g, float x, float y)
+        private void DrawDoorThree(Graphics g, Color DopColor, float x, float y)
         {
             Brush brush = new SolidBrush(DopColor);
             Pen pen = new Pen(Color.Red);
@@ -45,21 +63,21 @@ namespace WindowsFormsBusUsl
             g.FillEllipse(brush, x + 145, y + 10, 15, 40);
             g.DrawEllipse(pen, x + 145, y + 10, 15, 40);
         }
-        private void DrawDoorFour(Graphics g, float x, float y)
+        private void DrawDoorFour(Graphics g, Color DopColor, float x, float y)
         {
-            DrawDoorThree(g, x, y);
+            DrawDoorThree(g, DopColor, x, y);
             Brush brush = new SolidBrush(DopColor);
             Pen pen = new Pen(Color.Red);
-            DrawDoorThree(g, x, y);
+            DrawDoorThree(g, DopColor, x, y);
             g.FillEllipse(brush, x + 168, y + 10, 15, 40);
             g.DrawEllipse(pen, x + 168, y + 10, 15, 40);
         }
 
-        private void DrawDoorFive(Graphics g, float x, float y)
+        private void DrawDoorFive(Graphics g, Color DopColor, float x, float y)
         {
             Brush brush = new SolidBrush(DopColor);
             Pen pen = new Pen(Color.Red);
-            DrawDoorFour(g, x, y);
+            DrawDoorFour(g, DopColor, x, y);
             g.FillEllipse(brush, x + 191, y + 10, 15, 40);
             g.DrawEllipse(pen, x + 191, y + 10, 15, 40);
         }

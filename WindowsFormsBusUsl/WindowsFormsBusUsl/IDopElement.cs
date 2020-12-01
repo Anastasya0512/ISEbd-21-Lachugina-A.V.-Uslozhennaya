@@ -9,7 +9,7 @@ namespace WindowsFormsBusUsl
 {
     public interface IDopElement
     {
-        int Digit { set; }
+        int Count{ set; }
 
         void DrawAdditions(Graphics g, Color dopColor, float x, float y);
     }

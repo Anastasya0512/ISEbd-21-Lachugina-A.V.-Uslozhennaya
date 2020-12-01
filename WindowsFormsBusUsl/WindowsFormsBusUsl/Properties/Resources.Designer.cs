@@ -93,9 +93,39 @@ namespace WindowsFormsBusUsl.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap квадрат {
+            get {
+                object obj = ResourceManager.GetObject("квадрат", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap лево {
             get {
                 object obj = ResourceManager.GetObject("лево", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap овал {
+            get {
+                object obj = ResourceManager.GetObject("овал", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap треугольник {
+            get {
+                object obj = ResourceManager.GetObject("треугольник", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

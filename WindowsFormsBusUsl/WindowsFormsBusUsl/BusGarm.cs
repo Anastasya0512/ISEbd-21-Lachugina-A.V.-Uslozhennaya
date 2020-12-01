@@ -19,14 +19,41 @@ namespace WindowsFormsBusUsl
 
         public bool ThirdOs { private set; get; }
 
-        IDopElement DoorForm;
+        public int NumberDoors { private set; get; }
 
-        public BusGarm(int maxSpeed, float weight, Color mainColor, Color dopColor, bool garmoshka, bool thirdOs, int numberDoors, int formDoors) : base(maxSpeed, weight, mainColor, 194, 68)
+        public string DoorForm { private set; get; }
+
+        IDopElement Doors;
+
+        public BusGarm(int maxSpeed, float weight, Color mainColor, Color dopColor, bool garmoshka, bool thirdOs, int numberDoors, string formDoors) : base(maxSpeed, weight, mainColor, 194, 68)
         {
             DopColor = dopColor;
             Garmoshka = garmoshka;
             ThirdOs = thirdOs;
-            DoorForm = GetForm(formDoors, numberDoors);
+            DoorForm = formDoors;
+
+            if (DoorForm == "EllipseForm")
+            {
+                Doors = new EllipseForm(numberDoors, DopColor);
+
+            }
+            else if (DoorForm == "RectangleForm")
+            {
+                Doors = new RectangleForm(numberDoors, DopColor);
+            }
+            else
+            {
+                Doors = new TriangleForm(numberDoors, DopColor);
+            }
+        }
+        public void SetDoors(IDopElement door)
+        {
+            Doors = door;
+            DoorForm = Doors.GetType().Name;
+        }
+        public void SetDoorsCount(int portholeCount)
+        {
+            NumberDoors = portholeCount;
         }
 
         public override void DrawTransport(Graphics g)
@@ -63,20 +90,12 @@ namespace WindowsFormsBusUsl
                 g.DrawEllipse(os, _startPosX + 148, _startPosY + 50, 17, 17);
                 g.FillEllipse(white, _startPosX + 150, _startPosY + 52, 13, 13);
             }
-            DoorForm.DrawAdditions(g, DopColor, _startPosX, _startPosY);
+            Doors.DrawAdditions(g, DopColor, _startPosX, _startPosY);
         }
-        private IDopElement GetForm(int formDoors, int numberDoors)
+
+        public void SetDopColor(Color color)
         {
-            switch (formDoors)
-            {
-                case 0:
-                    return new RectangleForm(numberDoors, DopColor);
-                case 1:
-                    return new EllipseForm(numberDoors, DopColor);
-                case 2:
-                    return new TriangleForm(numberDoors, DopColor);
-            }
-            return null;
+            DopColor = color;
         }
     }
 }

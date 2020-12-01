@@ -29,14 +29,10 @@
         private void InitializeComponent()
         {
             this.pictureBoxBus = new System.Windows.Forms.PictureBox();
-            this.buttonCreateBus = new System.Windows.Forms.Button();
             this.buttonLeft = new System.Windows.Forms.Button();
             this.buttonUp = new System.Windows.Forms.Button();
             this.buttonRight = new System.Windows.Forms.Button();
             this.buttonDown = new System.Windows.Forms.Button();
-            this.buttonCreateBusGarm = new System.Windows.Forms.Button();
-            this.comboBoxNumberDoors = new System.Windows.Forms.ComboBox();
-            this.comboBoxFormDoors = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBus)).BeginInit();
             this.SuspendLayout();
             // 
@@ -49,15 +45,6 @@
             this.pictureBoxBus.TabIndex = 0;
             this.pictureBoxBus.TabStop = false;
             this.pictureBoxBus.Click += new System.EventHandler(this.buttonMove_Click);
-            // 
-            // buttonCreateBus
-            // 
-            this.buttonCreateBus.Location = new System.Drawing.Point(746, 12);
-            this.buttonCreateBus.Name = "buttonCreateBus";
-            this.buttonCreateBus.Size = new System.Drawing.Size(211, 32);
-            this.buttonCreateBus.TabIndex = 1;
-            this.buttonCreateBus.Text = "Создать автобус";
-            this.buttonCreateBus.UseVisualStyleBackColor = true;
             // 
             // buttonLeft
             // 
@@ -107,45 +94,15 @@
             this.buttonDown.UseVisualStyleBackColor = true;
             this.buttonDown.Click += new System.EventHandler(this.buttonMove_Click);
             // 
-            // buttonCreateBusGarm
-            // 
-            this.buttonCreateBusGarm.Location = new System.Drawing.Point(746, 50);
-            this.buttonCreateBusGarm.Name = "buttonCreateBusGarm";
-            this.buttonCreateBusGarm.Size = new System.Drawing.Size(211, 45);
-            this.buttonCreateBusGarm.TabIndex = 6;
-            this.buttonCreateBusGarm.Text = "Создать автобус с гармошкой";
-            this.buttonCreateBusGarm.UseVisualStyleBackColor = true;
-            this.buttonCreateBusGarm.Click += new System.EventHandler(this.buttonCreateBusGarm_Click);
-            // 
-            // comboBoxNumberDoors
-            // 
-            this.comboBoxNumberDoors.FormattingEnabled = true;
-            this.comboBoxNumberDoors.Location = new System.Drawing.Point(746, 101);
-            this.comboBoxNumberDoors.Name = "comboBoxNumberDoors";
-            this.comboBoxNumberDoors.Size = new System.Drawing.Size(211, 24);
-            this.comboBoxNumberDoors.TabIndex = 7;
-            // 
-            // comboBoxFormDoors
-            // 
-            this.comboBoxFormDoors.FormattingEnabled = true;
-            this.comboBoxFormDoors.Location = new System.Drawing.Point(746, 131);
-            this.comboBoxFormDoors.Name = "comboBoxFormDoors";
-            this.comboBoxFormDoors.Size = new System.Drawing.Size(211, 24);
-            this.comboBoxFormDoors.TabIndex = 8;
-            // 
             // FormBus
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(969, 568);
-            this.Controls.Add(this.comboBoxFormDoors);
-            this.Controls.Add(this.comboBoxNumberDoors);
-            this.Controls.Add(this.buttonCreateBusGarm);
             this.Controls.Add(this.buttonDown);
             this.Controls.Add(this.buttonRight);
             this.Controls.Add(this.buttonUp);
             this.Controls.Add(this.buttonLeft);
-            this.Controls.Add(this.buttonCreateBus);
             this.Controls.Add(this.pictureBoxBus);
             this.Name = "FormBus";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -158,14 +115,10 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBoxBus;
-        private System.Windows.Forms.Button buttonCreateBus;
         private System.Windows.Forms.Button buttonLeft;
         private System.Windows.Forms.Button buttonUp;
         private System.Windows.Forms.Button buttonRight;
         private System.Windows.Forms.Button buttonDown;
-        private System.Windows.Forms.Button buttonCreateBusGarm;
-        private System.Windows.Forms.ComboBox comboBoxNumberDoors;
-        private System.Windows.Forms.ComboBox comboBoxFormDoors;
     }
 }
 

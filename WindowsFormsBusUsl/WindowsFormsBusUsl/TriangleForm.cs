@@ -9,31 +9,48 @@ namespace WindowsFormsBusUsl
 {
     class TriangleForm : IDopElement
     {
-        public int Digit { set => doorEnum = (DoorsEnum)value; }
-        private DoorsEnum doorEnum;
+        private DoorsEnum numberDoors;
         public Color DopColor { private set; get; }
-        public TriangleForm(int digit, Color dopColor)
+        public TriangleForm(int numberDoors, Color dopColor)
         {
-            Digit = digit;
+            Count = numberDoors;
             DopColor = dopColor;
         }
 
+        public int Count
+        {
+            set
+            {
+                if (value == 3)
+                {
+                    numberDoors = DoorsEnum.Three;
+                }
+                if (value == 4)
+                {
+                    numberDoors = DoorsEnum.Four;
+                }
+                if (value == 5)
+                {
+                    numberDoors = DoorsEnum.Five;
+                }
+            }
+        }
         public void DrawAdditions(Graphics g, Color DopColor, float x, float y)
         {
-            switch (doorEnum)
+            switch (numberDoors)
             {
                 case DoorsEnum.Three:
-                    DrawDoorThree(g, x, y);
+                    DrawDoorThree(g, DopColor, x, y);
                     break;
                 case DoorsEnum.Four:
-                    DrawDoorFour(g, x, y);
+                    DrawDoorFour(g, DopColor, x, y);
                     break;
                 case DoorsEnum.Five:
-                    DrawDoorFive(g, x, y);
+                    DrawDoorFive(g, DopColor, x, y);
                     break;
             }
         }
-        private void DrawDoorThree(Graphics g, float x, float y)
+        private void DrawDoorThree(Graphics g, Color DopColor, float x, float y)
         {
             Brush brush = new SolidBrush(DopColor);
             Pen pen = new Pen(Color.Red);
@@ -56,11 +73,11 @@ namespace WindowsFormsBusUsl
             g.FillPolygon(brush, pointg);
             g.DrawPolygon(pen, pointg);
         }
-        private void DrawDoorFour(Graphics g, float x, float y)
+        private void DrawDoorFour(Graphics g, Color DopColor, float x, float y)
         {
             Brush brush = new SolidBrush(DopColor);
             Pen pen = new Pen(Color.Red);
-            DrawDoorThree(g, x, y);
+            DrawDoorThree(g, DopColor, x, y);
             PointF g1 = new PointF(x + 175, y + 10);
             PointF g2 = new PointF(x + 162, y + 50);
             PointF g3 = new PointF(x + 188, y + 50);
@@ -69,11 +86,11 @@ namespace WindowsFormsBusUsl
             g.DrawPolygon(pen, pointg);
         }
 
-        private void DrawDoorFive(Graphics g, float x, float y)
+        private void DrawDoorFive(Graphics g, Color DopColor, float x, float y)
         {
             Brush brush = new SolidBrush(DopColor);
             Pen pen = new Pen(Color.Red);
-            DrawDoorFour(g, x, y);
+            DrawDoorFour(g, DopColor, x, y);
             PointF g1 = new PointF(x + 203, y + 10);
             PointF g2 = new PointF(x + 190, y + 50);
             PointF g3 = new PointF(x + 214, y + 50);
