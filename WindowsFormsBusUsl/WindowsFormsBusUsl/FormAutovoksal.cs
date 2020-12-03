@@ -85,21 +85,6 @@ namespace WindowsFormsBusUsl
             }
         }
 
-        private void buttonSeeBus_Click(object sender, EventArgs e)
-        {
-            if (buses.Count > 0)
-            {
-                FormBus form = new FormBus();
-                form.SetBus(buses.First.Value);
-                buses.RemoveFirst();
-                form.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Автобусов не осталось");
-            }
-        }
-
         private void listBoxAutovoksal_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             Draw();
@@ -132,6 +117,21 @@ namespace WindowsFormsBusUsl
                 FormBus form = new FormBus();
                 form.SetBus(buses.Last.Value);
                 buses.RemoveLast();
+                form.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Автобусов не осталось");
+            }
+        }
+
+        private void buttonSeeLast_Click(object sender, EventArgs e)
+        {
+            if (buses.Count > 0)
+            {
+                FormBus form = new FormBus();
+                form.SetBus(buses.First.Value);
+                buses.RemoveFirst();
                 form.ShowDialog();
             }
             else
