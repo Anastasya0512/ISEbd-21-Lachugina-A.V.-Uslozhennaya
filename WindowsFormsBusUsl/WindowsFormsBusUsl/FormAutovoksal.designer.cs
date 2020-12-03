@@ -32,7 +32,8 @@
             this.buttonSetBus = new System.Windows.Forms.Button();
             this.buttonSetGarmBus = new System.Windows.Forms.Button();
             this.groupBoxTakingBus = new System.Windows.Forms.GroupBox();
-            this.buttonSeeBus = new System.Windows.Forms.Button();
+            this.buttonSeeFirst = new System.Windows.Forms.Button();
+            this.buttonSeeLast = new System.Windows.Forms.Button();
             this.buttonTakeBus = new System.Windows.Forms.Button();
             this.maskedTextBoxNumber = new System.Windows.Forms.MaskedTextBox();
             this.labelPlace = new System.Windows.Forms.Label();
@@ -41,7 +42,6 @@
             this.buttonAddAutovoksal = new System.Windows.Forms.Button();
             this.listBoxAutovoksal = new System.Windows.Forms.ListBox();
             this.buttonDelAutovoksal = new System.Windows.Forms.Button();
-            this.buttonSeeFirst = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAutovoksal)).BeginInit();
             this.groupBoxTakingBus.SuspendLayout();
             this.SuspendLayout();
@@ -78,7 +78,7 @@
             // groupBoxTakingBus
             // 
             this.groupBoxTakingBus.Controls.Add(this.buttonSeeFirst);
-            this.groupBoxTakingBus.Controls.Add(this.buttonSeeBus);
+            this.groupBoxTakingBus.Controls.Add(this.buttonSeeLast);
             this.groupBoxTakingBus.Controls.Add(this.buttonTakeBus);
             this.groupBoxTakingBus.Controls.Add(this.maskedTextBoxNumber);
             this.groupBoxTakingBus.Controls.Add(this.labelPlace);
@@ -89,15 +89,25 @@
             this.groupBoxTakingBus.TabStop = false;
             this.groupBoxTakingBus.Text = "Забрать автобус";
             // 
-            // buttonSeeBus
+            // buttonSeeFirst
             // 
-            this.buttonSeeBus.Location = new System.Drawing.Point(6, 112);
-            this.buttonSeeBus.Name = "buttonSeeBus";
-            this.buttonSeeBus.Size = new System.Drawing.Size(103, 34);
-            this.buttonSeeBus.TabIndex = 3;
-            this.buttonSeeBus.Text = "Последний";
-            this.buttonSeeBus.UseVisualStyleBackColor = true;
-            this.buttonSeeBus.Click += new System.EventHandler(this.buttonSeeBus_Click);
+            this.buttonSeeFirst.Location = new System.Drawing.Point(115, 112);
+            this.buttonSeeFirst.Name = "buttonSeeFirst";
+            this.buttonSeeFirst.Size = new System.Drawing.Size(107, 34);
+            this.buttonSeeFirst.TabIndex = 4;
+            this.buttonSeeFirst.Text = "Первый";
+            this.buttonSeeFirst.UseVisualStyleBackColor = true;
+            this.buttonSeeFirst.Click += new System.EventHandler(this.buttonSeeFirst_Click);
+            // 
+            // buttonSeeLast
+            // 
+            this.buttonSeeLast.Location = new System.Drawing.Point(6, 112);
+            this.buttonSeeLast.Name = "buttonSeeLast";
+            this.buttonSeeLast.Size = new System.Drawing.Size(103, 34);
+            this.buttonSeeLast.TabIndex = 3;
+            this.buttonSeeLast.Text = "Последний";
+            this.buttonSeeLast.UseVisualStyleBackColor = true;
+            this.buttonSeeLast.Click += new System.EventHandler(this.buttonSeeLast_Click);
             // 
             // buttonTakeBus
             // 
@@ -171,16 +181,6 @@
             this.buttonDelAutovoksal.UseVisualStyleBackColor = true;
             this.buttonDelAutovoksal.Click += new System.EventHandler(this.buttonDelAutovoksal_Click);
             // 
-            // buttonSeeFirst
-            // 
-            this.buttonSeeFirst.Location = new System.Drawing.Point(115, 112);
-            this.buttonSeeFirst.Name = "buttonSeeFirst";
-            this.buttonSeeFirst.Size = new System.Drawing.Size(107, 34);
-            this.buttonSeeFirst.TabIndex = 4;
-            this.buttonSeeFirst.Text = "Первый";
-            this.buttonSeeFirst.UseVisualStyleBackColor = true;
-            this.buttonSeeFirst.Click += new System.EventHandler(this.buttonSeeFirst_Click);
-            // 
             // FormAutovoksal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -214,7 +214,7 @@
         private System.Windows.Forms.Button buttonTakeBus;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxNumber;
         private System.Windows.Forms.Label labelPlace;
-        private System.Windows.Forms.Button buttonSeeBus;
+        private System.Windows.Forms.Button buttonSeeLast;
         private System.Windows.Forms.Label labelAuotovoksal;
         private System.Windows.Forms.TextBox textBoxAutovoksalName;
         private System.Windows.Forms.Button buttonAddAutovoksal;
