@@ -51,9 +51,9 @@ namespace WindowsFormsBusUsl
             Doors = door;
             DoorForm = Doors.GetType().Name;
         }
-        public void SetDoorsCount(int portholeCount)
+        public void SetDoorsCount(int numberCount)
         {
-            NumberDoors = portholeCount;
+            NumberDoors = numberCount;
         }
 
         public override void DrawTransport(Graphics g)
