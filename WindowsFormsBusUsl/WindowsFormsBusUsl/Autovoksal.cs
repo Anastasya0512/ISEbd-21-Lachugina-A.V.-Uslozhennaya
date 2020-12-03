@@ -13,7 +13,7 @@ namespace WindowsFormsBusUsl
     /// <typeparam name="T"></typeparam>
     public class Autovoksal<T, K> where T : class, ITransport where K : class, IDopElement
     {
-        public readonly List<T> _places;
+        private readonly List<T> _places;
 
         private readonly int _maxCount;
 

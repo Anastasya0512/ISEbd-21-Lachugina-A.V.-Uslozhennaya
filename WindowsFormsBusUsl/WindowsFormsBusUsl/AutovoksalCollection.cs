@@ -60,7 +60,7 @@ namespace WindowsFormsBusUsl
             {
                 if (autovoksalStages.ContainsKey(key) && ind > -1)
                 {
-                    return autovoksalStages[key]._places[ind];
+                    return autovoksalStages[key][ind];
                 }
                 else
                 {
