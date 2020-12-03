@@ -124,5 +124,20 @@ namespace WindowsFormsBusUsl
             formBusConfig.AddEvent(AddBus);
             formBusConfig.Show();
         }
+
+        private void buttonSeeFirst_Click(object sender, EventArgs e)
+        {
+            if (buses.Count > 0)
+            {
+                FormBus form = new FormBus();
+                form.SetBus(buses.Last.Value);
+                buses.RemoveLast();
+                form.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Автобусов не осталось");
+            }
+        }
     }
 }

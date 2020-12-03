@@ -40,6 +40,7 @@
             this.listBoxAutovoksal = new System.Windows.Forms.ListBox();
             this.buttonDelAutovoksal = new System.Windows.Forms.Button();
             this.buttonAddBus = new System.Windows.Forms.Button();
+            this.buttonSeeFirst = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAutovoksal)).BeginInit();
             this.groupBoxTakingBus.SuspendLayout();
             this.SuspendLayout();
@@ -55,20 +56,21 @@
             // 
             // groupBoxTakingBus
             // 
+            this.groupBoxTakingBus.Controls.Add(this.buttonSeeFirst);
             this.groupBoxTakingBus.Controls.Add(this.buttonSeeBus);
             this.groupBoxTakingBus.Controls.Add(this.buttonTakeBus);
             this.groupBoxTakingBus.Controls.Add(this.maskedTextBoxNumber);
             this.groupBoxTakingBus.Controls.Add(this.labelPlace);
-            this.groupBoxTakingBus.Location = new System.Drawing.Point(894, 441);
+            this.groupBoxTakingBus.Location = new System.Drawing.Point(816, 418);
             this.groupBoxTakingBus.Name = "groupBoxTakingBus";
-            this.groupBoxTakingBus.Size = new System.Drawing.Size(150, 148);
+            this.groupBoxTakingBus.Size = new System.Drawing.Size(228, 171);
             this.groupBoxTakingBus.TabIndex = 3;
             this.groupBoxTakingBus.TabStop = false;
             this.groupBoxTakingBus.Text = "Забрать автобус";
             // 
             // buttonSeeBus
             // 
-            this.buttonSeeBus.Location = new System.Drawing.Point(17, 100);
+            this.buttonSeeBus.Location = new System.Drawing.Point(6, 115);
             this.buttonSeeBus.Name = "buttonSeeBus";
             this.buttonSeeBus.Size = new System.Drawing.Size(103, 34);
             this.buttonSeeBus.TabIndex = 3;
@@ -78,7 +80,7 @@
             // 
             // buttonTakeBus
             // 
-            this.buttonTakeBus.Location = new System.Drawing.Point(17, 64);
+            this.buttonTakeBus.Location = new System.Drawing.Point(65, 64);
             this.buttonTakeBus.Name = "buttonTakeBus";
             this.buttonTakeBus.Size = new System.Drawing.Size(103, 30);
             this.buttonTakeBus.TabIndex = 2;
@@ -90,7 +92,7 @@
             // 
             this.maskedTextBoxNumber.Location = new System.Drawing.Point(73, 36);
             this.maskedTextBoxNumber.Name = "maskedTextBoxNumber";
-            this.maskedTextBoxNumber.Size = new System.Drawing.Size(47, 22);
+            this.maskedTextBoxNumber.Size = new System.Drawing.Size(121, 22);
             this.maskedTextBoxNumber.TabIndex = 1;
             // 
             // labelPlace
@@ -158,6 +160,16 @@
             this.buttonAddBus.UseVisualStyleBackColor = true;
             this.buttonAddBus.Click += new System.EventHandler(this.buttonAddBus_Click);
             // 
+            // buttonSeeFirst
+            // 
+            this.buttonSeeFirst.Location = new System.Drawing.Point(115, 115);
+            this.buttonSeeFirst.Name = "buttonSeeFirst";
+            this.buttonSeeFirst.Size = new System.Drawing.Size(107, 34);
+            this.buttonSeeFirst.TabIndex = 4;
+            this.buttonSeeFirst.Text = "Первый";
+            this.buttonSeeFirst.UseVisualStyleBackColor = true;
+            this.buttonSeeFirst.Click += new System.EventHandler(this.buttonSeeFirst_Click);
+            // 
             // FormAutovoksal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -195,5 +207,6 @@
         private System.Windows.Forms.ListBox listBoxAutovoksal;
         private System.Windows.Forms.Button buttonDelAutovoksal;
         private System.Windows.Forms.Button buttonAddBus;
+        private System.Windows.Forms.Button buttonSeeFirst;
     }
 }
