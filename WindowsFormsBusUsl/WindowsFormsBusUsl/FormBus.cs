@@ -19,6 +19,7 @@ namespace WindowsFormsBusUsl
         {
             InitializeComponent();
         }
+        
         public void SetBus(ITransport bus)
         {
             this.bus = bus;

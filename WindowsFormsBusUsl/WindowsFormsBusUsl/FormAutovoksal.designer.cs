@@ -117,7 +117,7 @@
             // labelAuotovoksal
             // 
             this.labelAuotovoksal.AutoSize = true;
-            this.labelAuotovoksal.Location = new System.Drawing.Point(921, 28);
+            this.labelAuotovoksal.Location = new System.Drawing.Point(908, 21);
             this.labelAuotovoksal.Name = "labelAuotovoksal";
             this.labelAuotovoksal.Size = new System.Drawing.Size(84, 17);
             this.labelAuotovoksal.TabIndex = 4;
@@ -125,14 +125,14 @@
             // 
             // textBoxAutovoksalName
             // 
-            this.textBoxAutovoksalName.Location = new System.Drawing.Point(881, 48);
+            this.textBoxAutovoksalName.Location = new System.Drawing.Point(868, 41);
             this.textBoxAutovoksalName.Name = "textBoxAutovoksalName";
             this.textBoxAutovoksalName.Size = new System.Drawing.Size(163, 22);
             this.textBoxAutovoksalName.TabIndex = 5;
             // 
             // buttonAddAutovoksal
             // 
-            this.buttonAddAutovoksal.Location = new System.Drawing.Point(881, 76);
+            this.buttonAddAutovoksal.Location = new System.Drawing.Point(868, 69);
             this.buttonAddAutovoksal.Name = "buttonAddAutovoksal";
             this.buttonAddAutovoksal.Size = new System.Drawing.Size(163, 42);
             this.buttonAddAutovoksal.TabIndex = 6;
@@ -144,7 +144,7 @@
             // 
             this.listBoxAutovoksal.FormattingEnabled = true;
             this.listBoxAutovoksal.ItemHeight = 16;
-            this.listBoxAutovoksal.Location = new System.Drawing.Point(881, 124);
+            this.listBoxAutovoksal.Location = new System.Drawing.Point(868, 117);
             this.listBoxAutovoksal.Name = "listBoxAutovoksal";
             this.listBoxAutovoksal.Size = new System.Drawing.Size(163, 100);
             this.listBoxAutovoksal.TabIndex = 7;
@@ -152,7 +152,7 @@
             // 
             // buttonDelAutovoksal
             // 
-            this.buttonDelAutovoksal.Location = new System.Drawing.Point(881, 230);
+            this.buttonDelAutovoksal.Location = new System.Drawing.Point(868, 223);
             this.buttonDelAutovoksal.Name = "buttonDelAutovoksal";
             this.buttonDelAutovoksal.Size = new System.Drawing.Size(163, 44);
             this.buttonDelAutovoksal.TabIndex = 8;
