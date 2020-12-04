@@ -149,7 +149,7 @@ namespace WindowsFormsBusUsl
             }
         }
 
-        private void buttonSeeLast_Click(object sender, EventArgs e)
+        private void buttonSeeLast_Click(object sender, EventArgs e)  
         {
             if (buses.Count > 0)
             {
@@ -160,7 +160,7 @@ namespace WindowsFormsBusUsl
             }
             else
             {
-                MessageBox.Show("Автобусов не осталось");
+                MessageBox.Show("Автобусов не осталось"); 
             }
         }
     }

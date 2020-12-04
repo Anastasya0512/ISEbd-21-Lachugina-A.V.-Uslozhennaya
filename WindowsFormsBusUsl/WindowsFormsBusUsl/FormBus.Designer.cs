@@ -115,7 +115,23 @@
             this.buttonCreateBusGarm.TabIndex = 6;
             this.buttonCreateBusGarm.Text = "Создать автобус с гармошкой";
             this.buttonCreateBusGarm.UseVisualStyleBackColor = true;
-            this.buttonCreateBusGarm.Click += new System.EventHandler(this.buttonCreateBusGarm_Click);
+            this.buttonCreateBusGarm.Click += new System.EventHandler(this.buttonCreateBusGarm_Click_1);
+            // 
+            // comboBoxNumberDoors
+            // 
+            this.comboBoxNumberDoors.FormattingEnabled = true;
+            this.comboBoxNumberDoors.Location = new System.Drawing.Point(746, 101);
+            this.comboBoxNumberDoors.Name = "comboBoxNumberDoors";
+            this.comboBoxNumberDoors.Size = new System.Drawing.Size(211, 24);
+            this.comboBoxNumberDoors.TabIndex = 7;
+            // 
+            // comboBoxFormDoors
+            // 
+            this.comboBoxFormDoors.FormattingEnabled = true;
+            this.comboBoxFormDoors.Location = new System.Drawing.Point(746, 131);
+            this.comboBoxFormDoors.Name = "comboBoxFormDoors";
+            this.comboBoxFormDoors.Size = new System.Drawing.Size(211, 24);
+            this.comboBoxFormDoors.TabIndex = 8;
             // 
             // comboBoxNumberDoors
             // 

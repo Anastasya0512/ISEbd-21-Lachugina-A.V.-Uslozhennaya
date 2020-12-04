@@ -55,7 +55,9 @@ namespace WindowsFormsBusUsl
             p._places.RemoveAt(index);
             return bus;
         }
-
+            return null;
+        }
+  
         public void Draw(Graphics g)
         {
             DrawMarking(g);
