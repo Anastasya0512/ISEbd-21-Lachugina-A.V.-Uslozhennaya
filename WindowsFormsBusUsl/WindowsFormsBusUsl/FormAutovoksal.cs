@@ -52,7 +52,7 @@ namespace WindowsFormsBusUsl
         {
             if (string.IsNullOrEmpty(textBoxAutovoksalName.Text))
             {
-                MessageBox.Show("Введите название парковки", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Введите название автовокзала", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             autovoksalCollection.AddAutovoksal(textBoxAutovoksalName.Text);
@@ -86,7 +86,7 @@ namespace WindowsFormsBusUsl
                     }
                     else
                     {
-                        MessageBox.Show("Парковка переполнена");
+                        MessageBox.Show("Автовокзал переполнен");
                     }
                 }
             }
