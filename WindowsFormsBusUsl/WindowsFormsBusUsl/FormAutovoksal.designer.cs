@@ -43,7 +43,11 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сохранитьПолностьюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.сохранитьОднуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.загрузитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.загрузитьПолностьюToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.загрузитьОдинToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAutovoksal)).BeginInit();
@@ -187,17 +191,49 @@
             // 
             // сохранитьToolStripMenuItem
             // 
+            this.сохранитьToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.сохранитьПолностьюToolStripMenuItem,
+            this.сохранитьОднуToolStripMenuItem});
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
             this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.сохранитьToolStripMenuItem.Text = "Сохранить";
-            this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
+            // 
+            // сохранитьПолностьюToolStripMenuItem
+            // 
+            this.сохранитьПолностьюToolStripMenuItem.Name = "сохранитьПолностьюToolStripMenuItem";
+            this.сохранитьПолностьюToolStripMenuItem.Size = new System.Drawing.Size(247, 26);
+            this.сохранитьПолностьюToolStripMenuItem.Text = "Сохранить полностью";
+            this.сохранитьПолностьюToolStripMenuItem.Click += new System.EventHandler(this.сохранитьПолностьюToolStripMenuItem_Click);
+            // 
+            // сохранитьОднуToolStripMenuItem
+            // 
+            this.сохранитьОднуToolStripMenuItem.Name = "сохранитьОднуToolStripMenuItem";
+            this.сохранитьОднуToolStripMenuItem.Size = new System.Drawing.Size(247, 26);
+            this.сохранитьОднуToolStripMenuItem.Text = "Сохранить один";
+            this.сохранитьОднуToolStripMenuItem.Click += new System.EventHandler(this.сохранитьОднуToolStripMenuItem_Click);
             // 
             // загрузитьToolStripMenuItem
             // 
+            this.загрузитьToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.загрузитьПолностьюToolStripMenuItem,
+            this.загрузитьОдинToolStripMenuItem});
             this.загрузитьToolStripMenuItem.Name = "загрузитьToolStripMenuItem";
             this.загрузитьToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.загрузитьToolStripMenuItem.Text = "Загрузить";
-            this.загрузитьToolStripMenuItem.Click += new System.EventHandler(this.загрузитьToolStripMenuItem_Click);
+            // 
+            // загрузитьПолностьюToolStripMenuItem
+            // 
+            this.загрузитьПолностьюToolStripMenuItem.Name = "загрузитьПолностьюToolStripMenuItem";
+            this.загрузитьПолностьюToolStripMenuItem.Size = new System.Drawing.Size(241, 26);
+            this.загрузитьПолностьюToolStripMenuItem.Text = "Загрузить полностью";
+            this.загрузитьПолностьюToolStripMenuItem.Click += new System.EventHandler(this.загрузитьПолностьюToolStripMenuItem_Click);
+            // 
+            // загрузитьОдинToolStripMenuItem
+            // 
+            this.загрузитьОдинToolStripMenuItem.Name = "загрузитьОдинToolStripMenuItem";
+            this.загрузитьОдинToolStripMenuItem.Size = new System.Drawing.Size(241, 26);
+            this.загрузитьОдинToolStripMenuItem.Text = "Загрузить один";
+            this.загрузитьОдинToolStripMenuItem.Click += new System.EventHandler(this.загрузитьОдинToolStripMenuItem_Click);
             // 
             // openFileDialog
             // 
@@ -255,5 +291,9 @@
         private System.Windows.Forms.ToolStripMenuItem загрузитьToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.ToolStripMenuItem сохранитьПолностьюToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem сохранитьОднуToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem загрузитьПолностьюToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem загрузитьОдинToolStripMenuItem;
     }
 }

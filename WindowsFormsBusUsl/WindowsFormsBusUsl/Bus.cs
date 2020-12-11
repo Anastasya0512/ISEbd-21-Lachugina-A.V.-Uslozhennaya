@@ -12,7 +12,9 @@ namespace WindowsFormsBusUsl
         protected readonly int busWidth = 194;
 
         protected readonly int busHeight = 68;
-  
+
+        protected readonly char separator = ';';
+
         public Bus(int maxSpeed, float weight, Color mainColor)
         {
             MaxSpeed = maxSpeed;
@@ -28,6 +30,16 @@ namespace WindowsFormsBusUsl
             MainColor = mainColor;
             this.busWidth = busWidth;
             this.busHeight = busHeight;
+        }
+        public Bus(string info)
+        {
+            string[] strs = info.Split(separator);
+            if (strs.Length == 3)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+            }
         }
         public override void MoveTransport(Direction direction)
         {
@@ -110,6 +122,10 @@ namespace WindowsFormsBusUsl
 
             //отрисуем фару
             g.FillRectangle(fara, _startPosX + 30, _startPosY + 48, 9, 5);
+        }
+        public override string ToString()
+        {
+            return $"{MaxSpeed}{separator}{Weight}{separator}{MainColor.Name}";
         }
     }
 }

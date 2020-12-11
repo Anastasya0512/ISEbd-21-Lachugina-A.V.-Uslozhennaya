@@ -125,7 +125,7 @@ namespace WindowsFormsBusUsl
             formBusConfig.Show();
         }
 
-        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void сохранитьПолностьюToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
             {
@@ -142,11 +142,11 @@ namespace WindowsFormsBusUsl
             }
         }
 
-        private void загрузитьToolStripMenuItem_Click(object sender, EventArgs e)
+        private void загрузитьПолностьюToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                if (autovoksalCollection.LoadData(openFileDialog.FileName))
+                if (autovoksalCollection.LoadData(openFileDialog.FileName, true))
                 {
                     MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK,
                    MessageBoxIcon.Information);
@@ -157,6 +157,38 @@ namespace WindowsFormsBusUsl
                 {
                     MessageBox.Show("Не загрузили", "Результат", MessageBoxButtons.OK,
                    MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void сохранитьОднуToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                if (autovoksalCollection.SaveOneLevel(saveFileDialog.FileName, listBoxAutovoksal.SelectedItem.ToString()))
+                {
+                    MessageBox.Show("Сохранение прошло успешно", "Результат",MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Не сохранилось", "Результат",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void загрузитьОдинToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                if (autovoksalCollection.LoadOneLevel(openFileDialog.FileName, false))
+                {
+                    MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    ReloadLevels();
+                    Draw();
+                }
+                else
+                {
+                    MessageBox.Show("Не загрузили", "Результат", MessageBoxButtons.OK,MessageBoxIcon.Error);
                 }
             }
         }

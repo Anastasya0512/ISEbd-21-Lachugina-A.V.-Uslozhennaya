@@ -57,6 +57,20 @@ namespace WindowsFormsBusUsl
                 }
             }
         }
+        public EasyBus this[string key, int ind]
+        {
+            get
+            {
+                if (autovoksalStages.ContainsKey(key) && ind > -1)
+                {
+                    return autovoksalStages[key]._places[ind];
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
 
         public bool SaveData(string filename)
         {
@@ -90,36 +104,74 @@ namespace WindowsFormsBusUsl
             }
             return true;
         }
+        public bool SaveOneLevel(string filename, string autovoksalName)
+        {
+            if (File.Exists(filename))
+            {
+                File.Delete(filename);
+            }
+            if (autovoksalStages.ContainsKey(autovoksalName))
+            {
+                using (FileStream fs = new FileStream(filename, FileMode.Create))
+                {
+                    using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8))
+                    {
+                        sw.WriteLine($"OneAutovoksal");
 
-        public bool LoadData(string filename)
+                        sw.WriteLine($"Autovoksal{separator}{autovoksalName}");
+                        ITransport bus = null;
+                        var level = autovoksalStages[autovoksalName];
+
+                        for (int i = 0; (bus = level[i]) != null; i++)
+                        {
+                            if (bus != null)
+                            {
+                                if (bus.GetType().Name == "Bus")
+                                {
+                                    sw.Write($"Bus{separator}");
+
+                                }
+                                if (bus.GetType().Name == "BusGarm")
+                                {
+                                    sw.Write($"BusGarm{separator}");
+                                }
+                                sw.WriteLine(bus);
+                            }
+                        }
+                    }
+                }
+            }
+            return true;
+        }
+        public bool LoadData(string filename, bool loadType)
         {
             if (!File.Exists(filename))
             {
                 return false;
             }
+
             using (StreamReader sr = new StreamReader(filename))
             {
                 string line = sr.ReadLine();
-                string key = string.Empty;
-                EasyBus bus = null;
-                if (line.Contains("AutovoksalCollection"))
+                if (line.Contains("AutovoksalCollection") && loadType)
                 {
                     autovoksalStages.Clear();
+                }
+                else
+                {
+                    return false;
+                }
+                line = sr.ReadLine();
+                EasyBus bus = null;
+                string key = string.Empty;
+                while (line != null && line.Contains("Autovoksal"))
+                {
+                    key = line.Split(separator)[1];
+                    autovoksalStages.Add(key, new Autovoksal<EasyBus, RectangleForm>(pictureWidth, pictureHeight));
+
                     line = sr.ReadLine();
-                    while (line != null)
+                    while (line != null && (line.Contains("Bus") || line.Contains("BusGarm")))
                     {
-                        if (line.Contains("Autovoksal"))
-                        {
-                            key = line.Split(separator)[1];
-                            autovoksalStages.Add(key, new Autovoksal<EasyBus>(pictureWidth, pictureHeight));
-                            line = sr.ReadLine();
-                            continue;
-                        }
-                        if (string.IsNullOrEmpty(line))
-                        {
-                            line = sr.ReadLine();
-                            continue;
-                        }
                         if (line.Split(separator)[0] == "Bus")
                         {
                             bus = new Bus(line.Split(separator)[1]);
@@ -135,9 +187,59 @@ namespace WindowsFormsBusUsl
                         }
                         line = sr.ReadLine();
                     }
-                    return true;
                 }
+                return true;
+            }
+        }
+        public bool LoadOneLevel(string filename, bool loadType)
+        {
+            if (!File.Exists(filename))
+            {
                 return false;
+            }
+            using (StreamReader sr = new StreamReader(filename))
+            {
+                string line = sr.ReadLine();
+                if (line.Contains("OneAutovoksal") && !loadType)
+                {
+                }
+                else
+                {
+                    return false;
+                }
+
+                line = sr.ReadLine();
+                EasyBus bus = null;
+                string key = string.Empty;
+
+                while (line != null && line.Contains("Autovoksal"))
+                {
+                    key = line.Split(separator)[1];
+                    autovoksalStages.Add(key, new Autovoksal<EasyBus, RectangleForm>(pictureWidth, pictureHeight));
+                    if (autovoksalStages.ContainsKey(key))
+                    {
+                        autovoksalStages[key].ClearStages();
+                    }
+                    line = sr.ReadLine();
+                    while (line != null && (line.Contains("Bus") || line.Contains("BusGarm")))
+                    {
+                        if (line.Split(separator)[0] == "Bus")
+                        {
+                            bus = new Bus(line.Split(separator)[1]);
+                        }
+                        else if (line.Split(separator)[0] == "BusGarm")
+                        {
+                            bus = new BusGarm(line.Split(separator)[1]);
+                        }
+                        line = sr.ReadLine();
+                        var result = autovoksalStages[key] + bus;
+                        if (!result)
+                        {
+                            return false;
+                        }
+                    }
+                }
+                return true;
             }
         }
     }

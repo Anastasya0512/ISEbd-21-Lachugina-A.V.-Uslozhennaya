@@ -78,5 +78,31 @@ namespace WindowsFormsBusUsl
                 g.DrawLine(pen, i * _placeSizeWidth + 3, 0, i * _placeSizeWidth + 3, (pictureHeight / _placeSizeHeight) * _placeSizeHeight);
             }
         }
+        public T GetNext(int index)
+        {
+            if (index < 0 || index >= _places.Count)
+            {
+                return null;
+            }
+            return _places[index];
+        }
+        public T this[int ind]
+        {
+            get
+            {
+                if (ind > -1 && ind < _places.Count)
+                {
+                    return _places[ind];
+                }
+                else
+                {
+                    return null;
+                }
+            }
+        }
+        public void ClearStages()
+        {
+            _places.Clear();
+        }
     }
 }

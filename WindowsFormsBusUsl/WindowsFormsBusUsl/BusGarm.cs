@@ -46,6 +46,34 @@ namespace WindowsFormsBusUsl
                 Doors = new TriangleForm(numberDoors, DopColor);
             }
         }
+        public BusGarm(string info) : base(info)
+        {
+            string[] strs = info.Split(separator);
+            if (strs.Length == 8)
+            {
+                MaxSpeed = Convert.ToInt32(strs[0]);
+                Weight = Convert.ToInt32(strs[1]);
+                MainColor = Color.FromName(strs[2]);
+                DopColor = Color.FromName(strs[3]);
+                Garmoshka = Convert.ToBoolean(strs[4]);
+                ThirdOs = Convert.ToBoolean(strs[5]);
+                NumberDoors = Convert.ToInt32(strs[6]);
+                DoorForm = strs[7];
+                if (DoorForm == "EllipseForm")
+                {
+                    Doors = new EllipseForm(NumberDoors, DopColor);
+
+                }
+                else if (DoorForm == "RectangleForm")
+                {
+                    Doors = new RectangleForm(NumberDoors, DopColor);
+                }
+                else
+                {
+                    Doors = new TriangleForm(NumberDoors, DopColor);
+                }
+            }
+        }
         public void SetDoors(IDopElement door)
         {
             Doors = door;
@@ -90,12 +118,20 @@ namespace WindowsFormsBusUsl
                 g.DrawEllipse(os, _startPosX + 148, _startPosY + 50, 17, 17);
                 g.FillEllipse(white, _startPosX + 150, _startPosY + 52, 13, 13);
             }
-            Doors.DrawAdditions(g, DopColor, _startPosX, _startPosY);
+
+            if (Doors != null)
+            {
+                Doors.DrawAdditions(g, DopColor, _startPosX, _startPosY);
+            }
         }
 
         public void SetDopColor(Color color)
         {
             DopColor = color;
+        }
+        public override string ToString()
+        {
+            return $"{base.ToString()}{separator}{DopColor.Name}{separator}{Garmoshka}{separator}{ThirdOs}{separator}{NumberDoors}{separator}{DoorForm}";
         }
     }
 }
