@@ -39,8 +39,9 @@ namespace WindowsFormsBusUsl
         {
             if (p._places.Count >= p._maxCount)
             {
-                return false;
+                throw new AutovoksalOverflowException();
             }
+
             p._places.Add(bus);
             return true;
         }
@@ -49,8 +50,9 @@ namespace WindowsFormsBusUsl
         {
             if (index < -1 || index > p._places.Count)
             {
-                return null;
+                throw new AutovoksalNotFoundException(index);
             }
+
             T bus = p._places[index];
             p._places.RemoveAt(index);
             return bus;

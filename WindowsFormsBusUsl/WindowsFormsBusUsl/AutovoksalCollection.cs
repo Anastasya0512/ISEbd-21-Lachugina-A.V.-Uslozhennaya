@@ -72,7 +72,7 @@ namespace WindowsFormsBusUsl
             }
         }
 
-        public bool SaveData(string filename)
+        public void SaveData(string filename)
         {
             if (File.Exists(filename))
             {
@@ -102,9 +102,8 @@ namespace WindowsFormsBusUsl
                     }
                 }
             }
-            return true;
         }
-        public bool SaveOneLevel(string filename, string autovoksalName)
+        public void SaveOneLevel(string filename, string autovoksalName)
         {
             if (File.Exists(filename))
             {
@@ -141,13 +140,16 @@ namespace WindowsFormsBusUsl
                     }
                 }
             }
-            return true;
+            else
+            {
+                throw new FormatException();
+            }
         }
-        public bool LoadData(string filename, bool loadType)
+        public void LoadData(string filename, bool loadType)
         {
             if (!File.Exists(filename))
             {
-                return false;
+                throw new FileNotFoundException();
             }
 
             using (StreamReader sr = new StreamReader(filename))
@@ -159,7 +161,7 @@ namespace WindowsFormsBusUsl
                 }
                 else
                 {
-                    return false;
+                    throw new FormatException();
                 }
                 line = sr.ReadLine();
                 EasyBus bus = null;
@@ -183,19 +185,18 @@ namespace WindowsFormsBusUsl
                         var result = autovoksalStages[key] + bus;
                         if (!result)
                         {
-                            return false;
+                            throw new NullReferenceException();
                         }
                         line = sr.ReadLine();
                     }
                 }
-                return true;
             }
         }
-        public bool LoadOneLevel(string filename, bool loadType)
+        public void LoadOneLevel(string filename, bool loadType)
         {
             if (!File.Exists(filename))
             {
-                return false;
+                throw new FileNotFoundException();
             }
             using (StreamReader sr = new StreamReader(filename))
             {
@@ -205,9 +206,8 @@ namespace WindowsFormsBusUsl
                 }
                 else
                 {
-                    return false;
+                    throw new FormatException();
                 }
-
                 line = sr.ReadLine();
                 EasyBus bus = null;
                 string key = string.Empty;
@@ -235,11 +235,10 @@ namespace WindowsFormsBusUsl
                         var result = autovoksalStages[key] + bus;
                         if (!result)
                         {
-                            return false;
+                            throw new NullReferenceException();
                         }
                     }
                 }
-                return true;
             }
         }
     }
