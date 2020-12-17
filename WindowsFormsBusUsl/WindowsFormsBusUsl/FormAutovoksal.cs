@@ -146,7 +146,7 @@ namespace WindowsFormsBusUsl
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                if (autovoksalCollection.LoadData(openFileDialog.FileName, true))
+                if (autovoksalCollection.LoadData(openFileDialog.FileName))
                 {
                     MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK,
                    MessageBoxIcon.Information);
@@ -180,7 +180,7 @@ namespace WindowsFormsBusUsl
         {
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                if (autovoksalCollection.LoadOneLevel(openFileDialog.FileName, false))
+                if (autovoksalCollection.LoadOneLevel(openFileDialog.FileName))
                 {
                     MessageBox.Show("Загрузили", "Результат", MessageBoxButtons.OK,MessageBoxIcon.Information);
                     ReloadLevels();

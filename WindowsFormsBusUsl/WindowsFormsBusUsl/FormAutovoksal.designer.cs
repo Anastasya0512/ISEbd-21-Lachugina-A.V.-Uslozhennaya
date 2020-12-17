@@ -58,9 +58,9 @@
             // pictureBoxAutovoksal
             // 
             this.pictureBoxAutovoksal.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBoxAutovoksal.Location = new System.Drawing.Point(0, 28);
+            this.pictureBoxAutovoksal.Location = new System.Drawing.Point(0, 30);
             this.pictureBoxAutovoksal.Name = "pictureBoxAutovoksal";
-            this.pictureBoxAutovoksal.Size = new System.Drawing.Size(810, 573);
+            this.pictureBoxAutovoksal.Size = new System.Drawing.Size(810, 571);
             this.pictureBoxAutovoksal.TabIndex = 0;
             this.pictureBoxAutovoksal.TabStop = false;
             // 
@@ -176,7 +176,7 @@
             this.файлToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1078, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1078, 30);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -186,7 +186,7 @@
             this.сохранитьToolStripMenuItem,
             this.загрузитьToolStripMenuItem});
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
-            this.файлToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
+            this.файлToolStripMenuItem.Size = new System.Drawing.Size(59, 26);
             this.файлToolStripMenuItem.Text = "Файл";
             // 
             // сохранитьToolStripMenuItem
@@ -195,7 +195,7 @@
             this.сохранитьПолностьюToolStripMenuItem,
             this.сохранитьОднуToolStripMenuItem});
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
-            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
             this.сохранитьToolStripMenuItem.Text = "Сохранить";
             // 
             // сохранитьПолностьюToolStripMenuItem
@@ -218,7 +218,7 @@
             this.загрузитьПолностьюToolStripMenuItem,
             this.загрузитьОдинToolStripMenuItem});
             this.загрузитьToolStripMenuItem.Name = "загрузитьToolStripMenuItem";
-            this.загрузитьToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.загрузитьToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
             this.загрузитьToolStripMenuItem.Text = "Загрузить";
             // 
             // загрузитьПолностьюToolStripMenuItem

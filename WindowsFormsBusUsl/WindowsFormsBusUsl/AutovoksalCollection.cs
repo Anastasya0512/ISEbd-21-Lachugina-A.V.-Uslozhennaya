@@ -110,8 +110,10 @@ namespace WindowsFormsBusUsl
             {
                 File.Delete(filename);
             }
-            if (autovoksalStages.ContainsKey(autovoksalName))
+            if (!autovoksalStages.ContainsKey(autovoksalName))
             {
+                return false;
+            }
                 using (FileStream fs = new FileStream(filename, FileMode.Create))
                 {
                     using (StreamWriter sw = new StreamWriter(fs, Encoding.UTF8))
@@ -140,25 +142,26 @@ namespace WindowsFormsBusUsl
                         }
                     }
                 }
-            }
             return true;
         }
-        public bool LoadData(string filename, bool loadType)
+       
+        public bool LoadData(string filename)
         {
             if (!File.Exists(filename))
             {
                 return false;
             }
-
             using (StreamReader sr = new StreamReader(filename))
             {
                 string line = sr.ReadLine();
-                if (line.Contains("AutovoksalCollection") && loadType)
+                if (line.Contains("AutovoksalCollection"))
                 {
+                    //очищаем записи
                     autovoksalStages.Clear();
                 }
                 else
                 {
+                    //если нет такой записи, то это не те данные
                     return false;
                 }
                 line = sr.ReadLine();
@@ -168,7 +171,6 @@ namespace WindowsFormsBusUsl
                 {
                     key = line.Split(separator)[1];
                     autovoksalStages.Add(key, new Autovoksal<EasyBus, RectangleForm>(pictureWidth, pictureHeight));
-
                     line = sr.ReadLine();
                     while (line != null && (line.Contains("Bus") || line.Contains("BusGarm")))
                     {
@@ -191,7 +193,8 @@ namespace WindowsFormsBusUsl
                 return true;
             }
         }
-        public bool LoadOneLevel(string filename, bool loadType)
+
+        public bool LoadOneLevel(string filename)
         {
             if (!File.Exists(filename))
             {
@@ -200,26 +203,28 @@ namespace WindowsFormsBusUsl
             using (StreamReader sr = new StreamReader(filename))
             {
                 string line = sr.ReadLine();
-                if (line.Contains("OneAutovoksal") && !loadType)
-                {
-                }
+
+                if (line.Contains("OneAutovoksal")) { }
                 else
                 {
+                    //если нет такой записи, то это не те данные
                     return false;
                 }
-
                 line = sr.ReadLine();
                 EasyBus bus = null;
                 string key = string.Empty;
-
-                while (line != null && line.Contains("Autovoksal"))
+                if (line != null && line.Contains("Autovoksal"))
                 {
                     key = line.Split(separator)[1];
-                    autovoksalStages.Add(key, new Autovoksal<EasyBus, RectangleForm>(pictureWidth, pictureHeight));
                     if (autovoksalStages.ContainsKey(key))
                     {
                         autovoksalStages[key].ClearStages();
                     }
+                    else
+                    {
+                        autovoksalStages.Add(key, new Autovoksal<EasyBus, RectangleForm>(pictureWidth, pictureHeight));
+                    }
+
                     line = sr.ReadLine();
                     while (line != null && (line.Contains("Bus") || line.Contains("BusGarm")))
                     {
@@ -231,14 +236,15 @@ namespace WindowsFormsBusUsl
                         {
                             bus = new BusGarm(line.Split(separator)[1]);
                         }
-                        line = sr.ReadLine();
                         var result = autovoksalStages[key] + bus;
                         if (!result)
                         {
                             return false;
                         }
+                        line = sr.ReadLine();
                     }
                 }
+                else return false;
                 return true;
             }
         }
