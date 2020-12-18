@@ -13,7 +13,7 @@ namespace WindowsFormsBusUsl
     /// <typeparam name="T"></typeparam>
     public class Autovoksal<T, K> where T : class, ITransport where K : class, IDopElement
     {
-        public readonly List<T> _places;
+        private readonly List<T> _places;
 
         private readonly int _maxCount;
 
@@ -57,7 +57,9 @@ namespace WindowsFormsBusUsl
             p._places.RemoveAt(index);
             return bus;
         }
-
+            return null;
+        }
+  
         public void Draw(Graphics g)
         {
             DrawMarking(g);
@@ -80,6 +82,7 @@ namespace WindowsFormsBusUsl
                 g.DrawLine(pen, i * _placeSizeWidth + 3, 0, i * _placeSizeWidth + 3, (pictureHeight / _placeSizeHeight) * _placeSizeHeight);
             }
         }
+
         public T GetNext(int index)
         {
             if (index < 0 || index >= _places.Count)
@@ -88,6 +91,7 @@ namespace WindowsFormsBusUsl
             }
             return _places[index];
         }
+  
         public T this[int ind]
         {
             get
@@ -102,6 +106,7 @@ namespace WindowsFormsBusUsl
                 }
             }
         }
+
         public void ClearStages()
         {
             _places.Clear();

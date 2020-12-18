@@ -30,7 +30,8 @@
         {
             this.pictureBoxAutovoksal = new System.Windows.Forms.PictureBox();
             this.groupBoxTakingBus = new System.Windows.Forms.GroupBox();
-            this.buttonSeeBus = new System.Windows.Forms.Button();
+            this.buttonSeeFirst = new System.Windows.Forms.Button();
+            this.buttonSeeLast = new System.Windows.Forms.Button();
             this.buttonTakeBus = new System.Windows.Forms.Button();
             this.maskedTextBoxNumber = new System.Windows.Forms.MaskedTextBox();
             this.labelPlace = new System.Windows.Forms.Label();
@@ -58,38 +59,49 @@
             // pictureBoxAutovoksal
             // 
             this.pictureBoxAutovoksal.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBoxAutovoksal.Location = new System.Drawing.Point(0, 28);
+            this.pictureBoxAutovoksal.Location = new System.Drawing.Point(0, 30);
             this.pictureBoxAutovoksal.Name = "pictureBoxAutovoksal";
-            this.pictureBoxAutovoksal.Size = new System.Drawing.Size(810, 573);
+            this.pictureBoxAutovoksal.Size = new System.Drawing.Size(810, 571);
             this.pictureBoxAutovoksal.TabIndex = 0;
             this.pictureBoxAutovoksal.TabStop = false;
             // 
             // groupBoxTakingBus
             // 
-            this.groupBoxTakingBus.Controls.Add(this.buttonSeeBus);
+            this.groupBoxTakingBus.Controls.Add(this.buttonSeeFirst);
+            this.groupBoxTakingBus.Controls.Add(this.buttonSeeLast);
             this.groupBoxTakingBus.Controls.Add(this.buttonTakeBus);
             this.groupBoxTakingBus.Controls.Add(this.maskedTextBoxNumber);
             this.groupBoxTakingBus.Controls.Add(this.labelPlace);
-            this.groupBoxTakingBus.Location = new System.Drawing.Point(894, 441);
+            this.groupBoxTakingBus.Location = new System.Drawing.Point(816, 418);
             this.groupBoxTakingBus.Name = "groupBoxTakingBus";
-            this.groupBoxTakingBus.Size = new System.Drawing.Size(150, 148);
+            this.groupBoxTakingBus.Size = new System.Drawing.Size(228, 171);
             this.groupBoxTakingBus.TabIndex = 3;
             this.groupBoxTakingBus.TabStop = false;
             this.groupBoxTakingBus.Text = "Забрать автобус";
             // 
-            // buttonSeeBus
+            // buttonSeeFirst
             // 
-            this.buttonSeeBus.Location = new System.Drawing.Point(17, 100);
-            this.buttonSeeBus.Name = "buttonSeeBus";
-            this.buttonSeeBus.Size = new System.Drawing.Size(103, 34);
-            this.buttonSeeBus.TabIndex = 3;
-            this.buttonSeeBus.Text = "Последний";
-            this.buttonSeeBus.UseVisualStyleBackColor = true;
-            this.buttonSeeBus.Click += new System.EventHandler(this.buttonSeeBus_Click);
+            this.buttonSeeFirst.Location = new System.Drawing.Point(115, 115);
+            this.buttonSeeFirst.Name = "buttonSeeFirst";
+            this.buttonSeeFirst.Size = new System.Drawing.Size(107, 34);
+            this.buttonSeeFirst.TabIndex = 4;
+            this.buttonSeeFirst.Text = "Первый";
+            this.buttonSeeFirst.UseVisualStyleBackColor = true;
+            this.buttonSeeFirst.Click += new System.EventHandler(this.buttonSeeFirst_Click);
+            // 
+            // buttonSeeLast
+            // 
+            this.buttonSeeLast.Location = new System.Drawing.Point(6, 115);
+            this.buttonSeeLast.Name = "buttonSeeLast";
+            this.buttonSeeLast.Size = new System.Drawing.Size(103, 34);
+            this.buttonSeeLast.TabIndex = 3;
+            this.buttonSeeLast.Text = "Последний";
+            this.buttonSeeLast.UseVisualStyleBackColor = true;
+            this.buttonSeeLast.Click += new System.EventHandler(this.buttonSeeLast_Click);
             // 
             // buttonTakeBus
             // 
-            this.buttonTakeBus.Location = new System.Drawing.Point(17, 64);
+            this.buttonTakeBus.Location = new System.Drawing.Point(65, 64);
             this.buttonTakeBus.Name = "buttonTakeBus";
             this.buttonTakeBus.Size = new System.Drawing.Size(103, 30);
             this.buttonTakeBus.TabIndex = 2;
@@ -101,7 +113,7 @@
             // 
             this.maskedTextBoxNumber.Location = new System.Drawing.Point(73, 36);
             this.maskedTextBoxNumber.Name = "maskedTextBoxNumber";
-            this.maskedTextBoxNumber.Size = new System.Drawing.Size(47, 22);
+            this.maskedTextBoxNumber.Size = new System.Drawing.Size(121, 22);
             this.maskedTextBoxNumber.TabIndex = 1;
             // 
             // labelPlace
@@ -116,7 +128,7 @@
             // labelAuotovoksal
             // 
             this.labelAuotovoksal.AutoSize = true;
-            this.labelAuotovoksal.Location = new System.Drawing.Point(921, 28);
+            this.labelAuotovoksal.Location = new System.Drawing.Point(908, 21);
             this.labelAuotovoksal.Name = "labelAuotovoksal";
             this.labelAuotovoksal.Size = new System.Drawing.Size(84, 17);
             this.labelAuotovoksal.TabIndex = 4;
@@ -124,14 +136,14 @@
             // 
             // textBoxAutovoksalName
             // 
-            this.textBoxAutovoksalName.Location = new System.Drawing.Point(881, 48);
+            this.textBoxAutovoksalName.Location = new System.Drawing.Point(868, 41);
             this.textBoxAutovoksalName.Name = "textBoxAutovoksalName";
             this.textBoxAutovoksalName.Size = new System.Drawing.Size(163, 22);
             this.textBoxAutovoksalName.TabIndex = 5;
             // 
             // buttonAddAutovoksal
             // 
-            this.buttonAddAutovoksal.Location = new System.Drawing.Point(881, 76);
+            this.buttonAddAutovoksal.Location = new System.Drawing.Point(868, 69);
             this.buttonAddAutovoksal.Name = "buttonAddAutovoksal";
             this.buttonAddAutovoksal.Size = new System.Drawing.Size(163, 42);
             this.buttonAddAutovoksal.TabIndex = 6;
@@ -143,7 +155,7 @@
             // 
             this.listBoxAutovoksal.FormattingEnabled = true;
             this.listBoxAutovoksal.ItemHeight = 16;
-            this.listBoxAutovoksal.Location = new System.Drawing.Point(881, 124);
+            this.listBoxAutovoksal.Location = new System.Drawing.Point(868, 117);
             this.listBoxAutovoksal.Name = "listBoxAutovoksal";
             this.listBoxAutovoksal.Size = new System.Drawing.Size(163, 100);
             this.listBoxAutovoksal.TabIndex = 7;
@@ -151,7 +163,7 @@
             // 
             // buttonDelAutovoksal
             // 
-            this.buttonDelAutovoksal.Location = new System.Drawing.Point(881, 230);
+            this.buttonDelAutovoksal.Location = new System.Drawing.Point(868, 223);
             this.buttonDelAutovoksal.Name = "buttonDelAutovoksal";
             this.buttonDelAutovoksal.Size = new System.Drawing.Size(163, 44);
             this.buttonDelAutovoksal.TabIndex = 8;
@@ -176,7 +188,7 @@
             this.файлToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1078, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1078, 30);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -186,7 +198,7 @@
             this.сохранитьToolStripMenuItem,
             this.загрузитьToolStripMenuItem});
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
-            this.файлToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
+            this.файлToolStripMenuItem.Size = new System.Drawing.Size(59, 26);
             this.файлToolStripMenuItem.Text = "Файл";
             // 
             // сохранитьToolStripMenuItem
@@ -195,7 +207,7 @@
             this.сохранитьПолностьюToolStripMenuItem,
             this.сохранитьОднуToolStripMenuItem});
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
-            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
             this.сохранитьToolStripMenuItem.Text = "Сохранить";
             // 
             // сохранитьПолностьюToolStripMenuItem
@@ -218,7 +230,7 @@
             this.загрузитьПолностьюToolStripMenuItem,
             this.загрузитьОдинToolStripMenuItem});
             this.загрузитьToolStripMenuItem.Name = "загрузитьToolStripMenuItem";
-            this.загрузитьToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.загрузитьToolStripMenuItem.Size = new System.Drawing.Size(166, 26);
             this.загрузитьToolStripMenuItem.Text = "Загрузить";
             // 
             // загрузитьПолностьюToolStripMenuItem
@@ -278,7 +290,7 @@
         private System.Windows.Forms.Button buttonTakeBus;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxNumber;
         private System.Windows.Forms.Label labelPlace;
-        private System.Windows.Forms.Button buttonSeeBus;
+        private System.Windows.Forms.Button buttonSeeLast;
         private System.Windows.Forms.Label labelAuotovoksal;
         private System.Windows.Forms.TextBox textBoxAutovoksalName;
         private System.Windows.Forms.Button buttonAddAutovoksal;

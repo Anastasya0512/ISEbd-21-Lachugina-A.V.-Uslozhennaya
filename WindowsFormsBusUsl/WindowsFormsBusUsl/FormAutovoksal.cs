@@ -55,7 +55,7 @@ namespace WindowsFormsBusUsl
         {
             if (string.IsNullOrEmpty(textBoxAutovoksalName.Text))
             {
-                MessageBox.Show("Введите название парковки", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Введите название автовокзала", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             logger.Info($"Добавили автовокзал {textBoxAutovoksalName.Text}");
@@ -105,21 +105,6 @@ namespace WindowsFormsBusUsl
                    MessageBoxButtons.OK, MessageBoxIcon.Error);
                     logger.Fatal("Неизвестная ошибка");
                 }
-            }
-        }
-
-        private void buttonSeeBus_Click(object sender, EventArgs e)
-        {
-            if (buses.Count > 0)
-            {
-                FormBus form = new FormBus();
-                form.SetBus(buses.First.Value);
-                buses.RemoveFirst();
-                form.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Автобусов не осталось");
             }
         }
 
