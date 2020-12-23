@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Collections;
 
 namespace WindowsFormsBusUsl
 {
-    public class Bus : EasyBus
+    public class Bus : EasyBus, IEquatable<Bus>, IComparable<Bus>, IEnumerable<object>, IEnumerator<object>
     {
         protected readonly int busWidth = 194;
 
@@ -15,11 +16,22 @@ namespace WindowsFormsBusUsl
 
         protected readonly char separator = ';';
 
+        public LinkedList<object> objectProperties = new LinkedList<object>();
+
+        private int currentIndex = -1;
+
+        public object Current => objectProperties.Find(currentIndex);
+
+        object IEnumerator<object>.Current => objectProperties.Find(currentIndex);
+
         public Bus(int maxSpeed, float weight, Color mainColor)
         {
             MaxSpeed = maxSpeed;
             Weight = weight;
             MainColor = mainColor;
+            objectProperties.AddLast(MaxSpeed);
+            objectProperties.AddLast(Weight);
+            objectProperties.AddLast(MainColor);
         }
   
         protected Bus(int maxSpeed, float weight, Color mainColor, int busWidth, int
@@ -30,6 +42,9 @@ namespace WindowsFormsBusUsl
             MainColor = mainColor;
             this.busWidth = busWidth;
             this.busHeight = busHeight;
+            objectProperties.AddLast(MaxSpeed);
+            objectProperties.AddLast(Weight);
+            objectProperties.AddLast(MainColor);
         }
         public Bus(string info)
         {
@@ -39,6 +54,9 @@ namespace WindowsFormsBusUsl
                 MaxSpeed = Convert.ToInt32(strs[0]);
                 Weight = Convert.ToInt32(strs[1]);
                 MainColor = Color.FromName(strs[2]);
+                objectProperties.AddLast(MaxSpeed);
+                objectProperties.AddLast(Weight);
+                objectProperties.AddLast(MainColor);
             }
         }
         public override void MoveTransport(Direction direction)
@@ -126,6 +144,87 @@ namespace WindowsFormsBusUsl
         public override string ToString()
         {
             return $"{MaxSpeed}{separator}{Weight}{separator}{MainColor.Name}";
+        }
+        public void Dispose()
+        {
+        }
+
+        public bool MoveNext()
+        {
+            currentIndex++;
+            return (currentIndex < 8);
+        }
+
+        public void Reset()
+        {
+            currentIndex = -1;
+        }
+        public bool Equals(Bus other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+            if (GetType().Name != other.GetType().Name)
+            {
+                return false;
+            }
+            if (MaxSpeed != other.MaxSpeed)
+            {
+                return false;
+            }
+            if (Weight != other.Weight)
+            {
+                return false;
+            }
+            if (MainColor != other.MainColor)
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public override bool Equals(Object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is Bus busObj))
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(busObj);
+            }
+        }
+
+        public int CompareTo(Bus p)
+        {
+            if (MaxSpeed != p.MaxSpeed)
+            {
+                return MaxSpeed.CompareTo(p.MaxSpeed);
+            }
+            if (Weight != p.Weight)
+            {
+                return Weight.CompareTo(p.Weight);
+            }
+            if (MainColor != p.MainColor)
+            {
+                return MainColor.Name.CompareTo(p.MainColor.Name);
+            }
+            return 0;
+        }
+
+        public IEnumerator<object> GetEnumerator()
+        {
+            return (IEnumerator<object>)objectProperties;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }

@@ -55,11 +55,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Autovoksal.cs" />
+    <Compile Include="AutovoksalAlreadyHaveException.cs" />
     <Compile Include="AutovoksalCollection.cs" />
     <Compile Include="AutovoksalNotFoundException.cs" />
     <Compile Include="AutovoksalOccupiedPlaceException.cs" />
     <Compile Include="AutovoksalOverflowException.cs" />
     <Compile Include="Bus.cs" />
+    <Compile Include="BusComparer.cs" />
     <Compile Include="BusGarm.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="DoorsEnum.cs" />

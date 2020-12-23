@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
+using System.Collections;
 
 namespace WindowsFormsBusUsl
 {
@@ -11,7 +12,7 @@ namespace WindowsFormsBusUsl
     /// Параметризованный класс для хранения набора объектов от интерфейса ITransport
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class Autovoksal<T, K> where T : class, ITransport where K : class, IDopElement
+    public class Autovoksal<T, K> : IEnumerator<T>, IEnumerable<T> where T : class, ITransport where K : class, IDopElement
     {
         public readonly List<T> _places;
 
@@ -25,6 +26,12 @@ namespace WindowsFormsBusUsl
 
         private readonly int _placeSizeHeight = 80;
 
+        private int _currentIndex;
+
+        public T Current => _places[_currentIndex];
+
+        object IEnumerator.Current => _places[_currentIndex];
+
         public Autovoksal(int picWidth, int picHeight)
         {
             int width = picWidth / _placeSizeWidth;
@@ -33,6 +40,7 @@ namespace WindowsFormsBusUsl
             pictureWidth = picWidth;
             pictureHeight = picHeight;
             _places = new List<T>();
+            _currentIndex = -1;
         }
 
         public static bool operator +(Autovoksal<T, K> p, T bus)
@@ -41,7 +49,10 @@ namespace WindowsFormsBusUsl
             {
                 throw new AutovoksalOverflowException();
             }
-
+            if (p._places.Contains(bus))
+            {
+                throw new AutovoksalAlreadyHaveException();
+            }
             p._places.Add(bus);
             return true;
         }
@@ -105,6 +116,32 @@ namespace WindowsFormsBusUsl
         public void ClearStages()
         {
             _places.Clear();
+        }
+        public void Sort() => _places.Sort((IComparer<T>)new BusComparer());
+
+        public void Dispose()
+        {
+        }
+
+        public bool MoveNext()
+        {
+            _currentIndex++;
+            return (_currentIndex < _places.Count);
+        }
+
+        public void Reset()
+        {
+            _currentIndex = -1;
+        }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return this;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return this;
         }
     }
 }

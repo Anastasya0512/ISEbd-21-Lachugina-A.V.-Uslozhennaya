@@ -5,13 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 using System.Windows.Forms;
+using System.Collections;
 
 namespace WindowsFormsBusUsl
 {
     /// <summary>
     /// Класс отрисовки автобуса
     /// </summary>
-    public class BusGarm : Bus
+    public class BusGarm : Bus, IEquatable<BusGarm>, IComparable<BusGarm>, IEnumerable<object>, IEnumerator<object>
     {
         public Color DopColor { private set; get; }
 
@@ -25,11 +26,20 @@ namespace WindowsFormsBusUsl
 
         IDopElement Doors;
 
+        public new LinkedList<object> objectProperties = new LinkedList<object>();
+
+        private int currentIndex = -1;
+
+        public new object Current => objectProperties.Find(currentIndex);
+
+        object IEnumerator<object>.Current => objectProperties.Find(currentIndex);
+
         public BusGarm(int maxSpeed, float weight, Color mainColor, Color dopColor, bool garmoshka, bool thirdOs, int numberDoors, string formDoors) : base(maxSpeed, weight, mainColor, 194, 68)
         {
             DopColor = dopColor;
             Garmoshka = garmoshka;
             ThirdOs = thirdOs;
+            NumberDoors = numberDoors;
             DoorForm = formDoors;
 
             if (DoorForm == "EllipseForm")
@@ -45,6 +55,20 @@ namespace WindowsFormsBusUsl
             {
                 Doors = new TriangleForm(numberDoors, DopColor);
             }
+            objectProperties.AddLast(DopColor);
+            objectProperties.AddLast(Garmoshka);
+            objectProperties.AddLast(ThirdOs);
+            objectProperties.AddLast(NumberDoors);
+            objectProperties.AddLast(DoorForm);
+        }
+        public BusGarm(int maxSpeed, float weight, Color mainColor, Color dopColor, bool garmoshka, bool thirdOs): base(maxSpeed, weight, mainColor, 194, 68)
+        {
+            DopColor = dopColor;
+            Garmoshka = garmoshka;
+            ThirdOs = thirdOs;
+            objectProperties.AddLast(DopColor);
+            objectProperties.AddLast(Garmoshka);
+            objectProperties.AddLast(ThirdOs);
         }
         public BusGarm(string info) : base(info)
         {
@@ -72,6 +96,14 @@ namespace WindowsFormsBusUsl
                 {
                     Doors = new TriangleForm(NumberDoors, DopColor);
                 }
+                objectProperties.AddLast(MaxSpeed);
+                objectProperties.AddLast(Weight);
+                objectProperties.AddLast(MainColor);
+                objectProperties.AddLast(DopColor);
+                objectProperties.AddLast(Garmoshka);
+                objectProperties.AddLast(ThirdOs);
+                objectProperties.AddLast(NumberDoors);
+                objectProperties.AddLast(DoorForm);
             }
         }
         public void SetDoors(IDopElement door)
@@ -132,6 +164,126 @@ namespace WindowsFormsBusUsl
         public override string ToString()
         {
             return $"{base.ToString()}{separator}{DopColor.Name}{separator}{Garmoshka}{separator}{ThirdOs}{separator}{NumberDoors}{separator}{DoorForm}";
+        }
+        public new void Dispose()
+        {
+        }
+
+        public new bool MoveNext()
+        {
+            currentIndex++;
+            return (currentIndex < 8);
+        }
+
+        public new void Reset()
+        {
+            currentIndex = -1;
+        }
+        public bool Equals(BusGarm other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+            if (GetType().Name != other.GetType().Name)
+            {
+                return false;
+            }
+            if (MaxSpeed != other.MaxSpeed)
+            {
+                return false;
+            }
+            if (Weight != other.Weight)
+            {
+                return false;
+            }
+            if (MainColor != other.MainColor)
+            {
+                return false;
+            }
+            if (DopColor != other.DopColor)
+            {
+                return false;
+            }
+            if (Garmoshka != other.Garmoshka)
+            {
+                return false;
+            }
+            if (ThirdOs != other.ThirdOs)
+            {
+                return false;
+            }
+            if (NumberDoors != other.NumberDoors)
+            {
+                return false;
+            }
+            if (DoorForm != other.DoorForm)
+            {
+                return false;
+            }
+            return true;
+        }
+        public override bool Equals(Object obj)
+        {
+            if (obj == null)
+            {
+                return false;
+            }
+            if (!(obj is BusGarm busObj))
+            {
+                return false;
+            }
+            else
+            {
+                return Equals(busObj);
+            }
+        }
+
+        public int CompareTo(BusGarm w)
+        {
+            if (MaxSpeed != w.MaxSpeed)
+            {
+                return MaxSpeed.CompareTo(w.MaxSpeed);
+            }
+            if (Weight != w.Weight)
+            {
+                return Weight.CompareTo(w.Weight);
+            }
+            if (MainColor != w.MainColor)
+            {
+                return MainColor.Name.CompareTo(w.MainColor.Name);
+            }
+            if (DopColor != w.DopColor)
+            {
+                return DopColor.Name.CompareTo(w.DopColor.Name);
+            }
+            if (Garmoshka != w.Garmoshka)
+            {
+                return Garmoshka.CompareTo(w.Garmoshka);
+            }
+            if (ThirdOs != w.ThirdOs)
+            {
+                return ThirdOs.CompareTo(w.ThirdOs);
+            }
+            if (NumberDoors != w.NumberDoors)
+            {
+                return NumberDoors.CompareTo(w.NumberDoors);
+            }
+            if (DoorForm != w.DoorForm)
+            {
+                return DoorForm.CompareTo(w.DoorForm);
+            }
+            return 0;
+        }
+
+        public new IEnumerator<object> GetEnumerator()
+        {
+            return (IEnumerator<object>)objectProperties;
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return GetEnumerator();
         }
     }
 }
