@@ -54,7 +54,7 @@ namespace WindowsFormsBusUsl
             else
             {
                 Doors = new TriangleForm(numberDoors, DopColor);
-            }
+            }        
             objectProperties.AddLast(DopColor);
             objectProperties.AddLast(Garmoshka);
             objectProperties.AddLast(ThirdOs);
